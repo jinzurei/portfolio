@@ -1,0 +1,726 @@
+<!--
+    Portfolio Website - Jin (@jinzurei)
+    Created: October 2025
+    Last Updated: October 11, 2025
+    
+    Features:
+    - Custom WebGL shader animations with Three.js
+    - Glassmorphism UI design
+    - Responsive grid layouts
+    - Interactive flip-card components
+    - GitHub contribution integration
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tanner L - Web Developer and Digital Artist Portfolio showcasing interactive projects, digital illustrations, and game development work.">
+    <meta name="author" content="Tanner L">
+    <meta name="keywords" content="web developer, portfolio, digital artist, game development, front-end developer">
+    <title>Tanner L - Portfolio</title>
+    <link rel="stylesheet" href="styles/portfolio.css?v=4">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">Tanner L</a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#portfolio" class="nav-link">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#art" class="nav-link">Artworks</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero" role="banner" aria-label="Hero section with portfolio introduction">
+        <video class="hero-video" autoplay muted loop aria-hidden="true" tabindex="-1">
+            <source src="photos/backgroundbydancristianpaduret.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-overlay-box">
+            <!-- Navigation shortcuts -->
+            <nav class="hero-nav">
+                <a href="#home" class="hero-nav-link">Home</a>
+                <a href="#about" class="hero-nav-link">About</a>
+                <a href="#portfolio" class="hero-nav-link">Portfolio</a>
+                <a href="#art" class="hero-nav-link">Artworks</a>
+                <a href="#contact" class="hero-nav-link">Contact</a>
+            </nav>
+
+            <div class="hero-overlay-content">
+                <h1 class="hero-overlay-title">Visionary</h1>
+                <p class="hero-overlay-subtitle">Creating Tomorrow's Digital Experiences</p>
+            </div>
+        </div>
+
+        <!-- Alternative hero content (hidden) -->
+        <div class="hero-content">
+            <h1 class="hero-title">Visionary</h1>
+            <p class="hero-subtitle">Creating Tomorrow's Digital Experiences</p>
+            <div class="hero-buttons">
+                <a href="#portfolio" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <a href="#about" class="scroll-arrow"></a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="photos/profile.webp" alt="Tanner L - Profile Picture" class="profile-picture">
+                </div>
+                <h2 class="section-title about-title">About Me</h2>
+                <div class="about-text">
+                    <p>Hi! I'm Tanner, a passionate creator who loves blending imagination and technology through digital content, game jams, and storytelling. I'm currently diving deeper into web development to expand my creative toolkit and bring bigger ideas to life.</p>
+                    <p>Outside of coding, I enjoy exploring new projects, learning continuously, and pushing myself to grow. I'm also blessed with a lovely girlfriend who inspires and encourages me every step of the way, reminding me why I chase creativity and connection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section portfolio-section">
+        <div class="container">
+            <h2 class="section-title">My Work</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="photos/websitephoto.webp" alt="Rapidds Rafting — BYU-Idaho WDD130 class project homepage preview." style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Rapidds Rafting Tour Site</h3>
+                        <p>Class Web Development Project - A mock rafting website built for BYU-Idaho's WDD130 course showcasing front-end fundamentals.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="photos/personalportfolio.webp" alt="Personal Portfolio Website">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Personal Portfolio Website</h3>
+                        <p>Interactive portfolio showcasing work and combining skills from multiple classes with advanced animations.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">Project 3</div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Project Title 3</h3>
+                        <p>Brief description of the project and technologies used.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">Project 4</div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>E-Commerce Platform</h3>
+                        <p>Full-stack e-commerce solution with React, Node.js, and MongoDB featuring payment integration and admin dashboard.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">Project 5</div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Mobile App Design</h3>
+                        <p>UI/UX design for a fitness tracking mobile application with intuitive user interface and engaging user experience.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">Project 6</div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Data Visualization Dashboard</h3>
+                        <p>Interactive dashboard built with D3.js and Python for real-time analytics and business intelligence reporting.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">Project 7</div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>AI Chatbot Integration</h3>
+                        <p>Smart chatbot system using natural language processing and machine learning for customer service automation.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">Project 8</div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Social Media Platform</h3>
+                        <p>Modern social networking platform with real-time messaging, content sharing, and community features.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">Project 9</div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Cloud Infrastructure</h3>
+                        <p>Scalable cloud architecture design and implementation using AWS services for enterprise-level applications.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-header">
+                <h2 id="modalTitle">Project Title</h2>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <div id="modalImage" class="modal-placeholder-image">Project Image</div>
+                </div>
+                <div class="modal-info">
+                    <h3>Project Overview</h3>
+                    <p id="modalDescription">Detailed project description will appear here.</p>
+
+                    <h3>Technologies Used</h3>
+                    <div id="modalTechnologies" class="tech-tags">
+                        <!-- Technology tags will be inserted here -->
+                    </div>
+
+                    <h3>Key Features</h3>
+                    <ul id="modalFeatures" class="feature-list">
+                        <!-- Features will be inserted here -->
+                    </ul>
+
+                    <div class="modal-links">
+                        <a href="#" id="modalLiveLink" class="btn btn-primary" target="_blank">View Live</a>
+                        <a href="#" id="modalRepoLink" class="btn btn-github" target="_blank" style="display: none;">GitHub Repo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GitHub Contribution Graph Section -->
+    <section class="section github-graph-section">
+        <div class="container">
+            <div class="github-graph-box">
+                <h2 class="section-title">Activity</h2>
+                <div class="github-graph-container">
+                    <img src="https://ghchart.rshah.org/007bff/jinzurei" alt="GitHub Contribution Graph" class="github-contribution-graph">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artworks Section -->
+    <section id="art" class="section art-section">
+        <div class="container">
+            <h2 class="section-title">Artworks</h2>
+            <div class="art-grid">
+                <!-- ARTWORK 1: NieR Character Tribute - 2B -->
+                <div class="art-card" tabindex="0" aria-label="Flip artwork card">
+                    <div class="art-card-inner">
+                        <div class="art-front">
+                            <img src="photos/2b.webp" alt="2B Artwork" class="art-image">
+                        </div>
+                        <div class="art-back">
+                            <h3 class="art-title">NieR Character Tribute - 2B</h3>
+                            <div class="art-meta">
+                                <div class="art-meta-line"><strong>Character:</strong> 2B from NieR: Automata</div>
+                                <div class="art-meta-line"><strong>Medium:</strong> Digital Illustration</div>
+                            </div>
+                            <p class="art-desc">Character study exploring advanced digital painting techniques through fan art tribute of 2B from NieR: Automata. Demonstrates proficiency in anatomy and lighting composition while honoring the source material's iconic aesthetic through careful attention to character design fundamentals.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ARTWORK 2: Aeon Angel -->
+                <div class="art-card" tabindex="0" aria-label="Flip artwork card">
+                    <div class="art-card-inner">
+                        <div class="art-front">
+                            <img src="photos/aeonangel.webp" alt="Aeon Angel Artwork" class="art-image">
+                        </div>
+                        <div class="art-back">
+                            <h3 class="art-title">Aeon Angel</h3>
+                            <div class="art-meta">
+                                <div class="art-meta-line"><strong>Medium:</strong> Digital Character Design</div>
+                                <div class="art-meta-line"><strong>Concept:</strong> Original Character</div>
+                            </div>
+                            <p class="art-desc">Original character conceptualization exploring narrative-driven design through visual development of an angel demoted to mundane earthly tasks after celestial mishaps. Demonstrates character personality expression through comedic storytelling integrated with intentional design language and visual narrative principles.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ARTWORK 3: Lily (Fartale) -->
+                <div class="art-card" tabindex="0" aria-label="Flip artwork card">
+                    <div class="art-card-inner">
+                        <div class="art-front">
+                            <img src="photos/fartale.webp" alt="Fartale Artwork" class="art-image">
+                        </div>
+                        <div class="art-back">
+                            <h3 class="art-title">Lily</h3>
+                            <div class="art-meta">
+                                <div class="art-meta-line"><strong>Medium:</strong> Digital Character Design</div>
+                                <div class="art-meta-line"><strong>Project:</strong> Fartale Game (In Development)</div>
+                            </div>
+                            <p class="art-desc">Protagonist design for Fartale demonstrating iterative design process through character evolution from initial game jam prototype into fully-realized production-ready asset. Showcases character development methodology applied to active game development project with emphasis on narrative-driven visual design.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ARTWORK 4: NieR Character Tribute - A2 -->
+                <div class="art-card" tabindex="0" aria-label="Flip artwork card">
+                    <div class="art-card-inner">
+                        <div class="art-front">
+                            <img src="photos/nier.webp" alt="NieR Artwork" class="art-image">
+                        </div>
+                        <div class="art-back">
+                            <h3 class="art-title">NieR Character Tribute - A2</h3>
+                            <div class="art-meta">
+                                <div class="art-meta-line"><strong>Character:</strong> A2 from NieR: Automata</div>
+                                <div class="art-meta-line"><strong>Medium:</strong> Digital Illustration</div>
+                            </div>
+                            <p class="art-desc">Character tribute exploring advanced digital painting techniques through artistic homage to A2 from NieR: Automata. Captures the atmospheric melancholy of the emotionally resonant narrative while demonstrating ability to interpret established IP aesthetics and convey personal artistic voice through technical execution.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ARTWORK 5: Underworld Tree -->
+                <div class="art-card" tabindex="0" aria-label="Flip artwork card">
+                    <div class="art-card-inner">
+                        <div class="art-front">
+                            <img src="photos/tree.webp" alt="Tree Artwork" class="art-image">
+                        </div>
+                        <div class="art-back">
+                            <h3 class="art-title">Underworld Tree</h3>
+                            <div class="art-meta">
+                                <div class="art-meta-line"><strong>Medium:</strong> Digital Environment Art</div>
+                                <div class="art-meta-line"><strong>Project:</strong> Fartale Game (In Development)</div>
+                            </div>
+                            <p class="art-desc">Environment concept art demonstrating asset reusability in game development through evolution from original game jam prototype into integrated production pipeline asset. Showcases atmospheric world-building with narrative environment design representing inter-dimensional lore connections for active game development project.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ARTWORK 6: Rapidds Rafting Logo -->
+                <div class="art-card" tabindex="0" aria-label="Flip artwork card">
+                    <div class="art-card-inner">
+                        <div class="art-front art-logo-card">
+                            <img src="photos/transparentlogo.webp" alt="Rapidds Rafting Logo" class="art-image">
+                        </div>
+                        <div class="art-back">
+                            <h3 class="art-title">Rapidds Rafting Logo</h3>
+                            <div class="art-meta">
+                                <div class="art-meta-line"><strong>Medium:</strong> Digital Logo Design</div>
+                                <div class="art-meta-line"><strong>Created for:</strong> Rapidds Rafting Website</div>
+                            </div>
+                            <p class="art-desc">Brand identity design demonstrating logo creation and visual branding principles for Rapidds Rafting website project. Showcases typography selection and iconography integration with emphasis on brand recognition and scalable vector design optimized for multi-platform deployment.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p>Ready to bring your vision to life? I'd love to hear about your project and explore how we can work together.</p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <strong>Email:</strong> <a href="mailto:Tanner.Livin@gmail.com" style="color: #007bff; text-decoration: none;">Tanner.Livin@gmail.com</a>
+                        </div>
+                        <div class="contact-method">
+                            <strong>GitHub:</strong> <a href="https://github.com/jinzurei" target="_blank" rel="noopener noreferrer" style="color: #007bff; text-decoration: none;">github.com/jinzurei</a>
+                        </div>
+                        <div class="contact-method">
+                            <strong>Twitter:</strong> <a href="https://twitter.com/jinzurei" target="_blank" rel="noopener noreferrer" style="color: #007bff; text-decoration: none;">@jinzurei</a>
+                        </div>
+                    </div>
+
+                    <!-- Twitter Feed Section -->
+                    <div class="twitter-feed-section">
+                        <h3>Latest Updates</h3>
+                        <div class="twitter-container">
+                            <a class="twitter-timeline"
+                               data-height="400"
+                               data-theme="dark"
+                               data-chrome="noheader nofooter noborders transparent"
+                               data-tweet-limit="5"
+                               data-show-replies="false"
+                               data-aria-polite="polite"
+                               href="https://twitter.com/jinzurei?ref_src=twsrc%5Etfw">
+
+                               <!-- Fallback content when tweets don't load -->
+                               <div class="twitter-fallback">
+                                   <p>Still here, just quiet on socials! 📱</p>
+                                   <p style="color: #b0b0b0; font-size: 0.9rem; margin-top: 1rem;">Focused on building cool projects instead.</p>
+                               </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+
+                    <!-- GitHub Contributions Section -->
+                    <div class="github-contributions-section">
+                        <h3>GitHub Activity</h3>
+                        <div class="github-container">
+                            <img src="https://github-readme-streak-stats.herokuapp.com/?user=jinzurei&theme=dark&hide_border=true&background=333333&stroke=555&ring=007bff&fire=007bff&currStreakLabel=e0e0e0&sideLabels=e0e0e0&currStreakNum=e0e0e0&sideNums=b0b0b0&dates=b0b0b0&type=png&mode=weekly"
+                                 alt="GitHub Contribution Streak"
+                                 class="github-streak">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Tanner L | <span class="footer-handle">@jinzurei</span></p>
+        </div>
+    </footer>
+
+    <script>
+        const nav = {
+            hamburger: document.querySelector('.hamburger'),
+            menu: document.querySelector('.nav-menu'),
+            bar: document.querySelector('.navbar')
+        };
+
+        const hero = {
+            video: document.querySelector('.hero-video'),
+            section: document.querySelector('.hero')
+        };
+
+        const modal = {
+            element: document.getElementById('projectModal'),
+            close: document.querySelector('.modal-close')
+        };
+
+        nav.hamburger?.addEventListener('click', () => {
+            nav.hamburger.classList.toggle('active');
+            nav.menu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.hamburger.classList.remove('active');
+                nav.menu.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('scroll', () => {
+            nav.bar.classList.toggle('scrolled', window.scrollY > 100);
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // Only prevent default for internal anchor links, not external URLs
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        // Video parallax (desktop only)
+        const isTouch = 'ontouchstart' in window;
+        const isDesktop = window.innerWidth >= 768 && !isTouch;
+
+        if (hero.video && hero.section && isDesktop) {
+            hero.section.addEventListener('mousemove', (e) => {
+                const rect = hero.section.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width - 0.5) * 40;
+                const y = ((e.clientY - rect.top) / rect.height - 0.5) * 40;
+                hero.video.style.transform = `translate(${x}px, ${y}px) scale(1.05)`;
+            });
+
+            hero.section.addEventListener('mouseleave', () => {
+                hero.video.style.transform = 'translate(0, 0) scale(1.05)';
+            });
+        } else if (hero.video) {
+            hero.video.style.transform = 'scale(1.05)';
+        }
+
+        // Project data configuration
+        const projectInfo = [
+            // PROJECT 1: Rapidds Rafting Tour Site
+            {
+                title: "Rapidds Rafting Tour Site",
+                description: "Responsive multi-page website demonstrating semantic HTML5 architecture and modern CSS methodologies. Implemented component-based design patterns with cross-browser compatibility and web standards compliance. Deployed using continuous integration via GitHub Pages.",
+                tech: ["HTML5", "CSS3", "GitHub Pages", "Flexbox", "CSS Grid"],
+                features: ["Mobile-first responsive design with Flexbox and Grid layouts", "Component-based architecture with modular CSS", "Multi-route navigation system across 4+ pages", "Third-party API integration (Google Maps)", "Performance optimization with WebP image format", "W3C standards validation and accessibility compliance"]
+            },
+
+            // PROJECT 2: Personal Portfolio Website
+            {
+                title: "Personal Portfolio Website",
+                description: "Interactive portfolio website showcasing front-end development skills through advanced animations and modern design techniques. Features custom WebGL shader effects with Three.js for dynamic background visualizations, combined with glassmorphism UI principles for a polished, contemporary aesthetic. Built entirely with vanilla JavaScript to demonstrate core programming proficiency without framework dependencies.",
+                tech: ["Three.js", "WebGL/GLSL", "JavaScript ES6+", "CSS3 Grid", "HTML5", "Intersection Observer API"],
+                features: ["Real-time WebGL shader rendering with custom GLSL shaders", "Glassmorphism design with backdrop-filter blur effects", "CSS Grid responsive layouts with auto-fit columns", "3D flip-card animations using CSS perspective transforms", "Intersection Observer API for scroll-triggered animations", "Performance-optimized animation frame loop", "Mobile-first responsive breakpoints", "Cross-browser compatibility (Chrome, Firefox, Safari, Edge)"]
+            },
+
+            // PROJECT 3: Placeholder
+            {
+                title: "Project Title 3",
+                description: "A feature-rich application that demonstrates proficiency in modern development practices. Built with attention to detail and optimized for performance.",
+                tech: ["Angular", "TypeScript", "Firebase", "SCSS"],
+                features: ["Progressive Web App (PWA)", "Offline functionality", "Push notifications", "Material Design UI"]
+            },
+
+            // PROJECT 4: E-Commerce Platform
+            {
+                title: "E-Commerce Platform",
+                description: "A complete e-commerce solution featuring product management, secure payment processing, and comprehensive admin controls. Built for scalability and optimal user experience.",
+                tech: ["React", "Node.js", "MongoDB", "Stripe", "Redux"],
+                features: ["Secure payment integration", "Advanced product filtering", "Real-time inventory management", "Admin dashboard", "Order tracking"]
+            },
+
+            // PROJECT 5: Mobile App Design
+            {
+                title: "Mobile App Design",
+                description: "A comprehensive UI/UX design for a fitness tracking application. Focus on intuitive user experience, engaging visual design, and seamless user journey optimization.",
+                tech: ["Figma", "Adobe XD", "Sketch", "InVision", "Principle"],
+                features: ["Intuitive interface design", "Interactive prototyping", "User journey mapping", "Accessibility focused", "Cross-platform compatibility"]
+            },
+
+            // PROJECT 6: Data Visualization Dashboard
+            {
+                title: "Data Visualization Dashboard",
+                description: "An interactive dashboard for real-time analytics and business intelligence. Features dynamic charts, customizable reports, and seamless data integration.",
+                tech: ["D3.js", "Python", "Flask", "PostgreSQL", "Chart.js"],
+                features: ["Real-time data visualization", "Interactive charts", "Customizable layouts", "Export functionality", "Advanced filtering"]
+            },
+
+            // PROJECT 7: AI Chatbot Integration
+            {
+                title: "AI Chatbot Integration",
+                description: "An intelligent chatbot system powered by natural language processing and machine learning. Designed for customer service automation with human-like interactions.",
+                tech: ["Python", "TensorFlow", "NLP", "Flask", "WebSocket"],
+                features: ["Natural language understanding", "Context-aware conversations", "Multi-language support", "System integration", "Analytics insights"]
+            },
+
+            // PROJECT 8: Social Media Platform
+            {
+                title: "Social Media Platform",
+                description: "A modern social networking platform featuring real-time messaging, content sharing, and community building tools. Built for scalability and user engagement.",
+                tech: ["React", "Socket.io", "Node.js", "Redis", "AWS"],
+                features: ["Real-time messaging", "Content sharing", "User profiles", "Community features", "Privacy controls"]
+            },
+
+            // PROJECT 9: Cloud Infrastructure
+            {
+                title: "Cloud Infrastructure",
+                description: "Scalable cloud architecture design and implementation for enterprise-level applications. Focus on security, performance, and cost optimization.",
+                tech: ["AWS", "Docker", "Kubernetes", "Terraform", "CI/CD"],
+                features: ["Auto-scaling infrastructure", "Load balancing", "Continuous deployment", "Security standards", "Cost optimization"]
+            }
+        ];
+
+        // Modal functionality
+        if (modal.element) {
+
+            function showProject(project, index) {
+                document.getElementById('modalTitle').textContent = project.title;
+
+                const modalImageElement = document.getElementById('modalImage');
+                if (index === 0) {
+                    modalImageElement.innerHTML = '<img src="photos/websitephoto.webp" alt="Rapidds Rafting homepage screenshot" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">';
+                } else if (index === 1) {
+                    modalImageElement.innerHTML = '<img src="photos/personalportfolio.webp" alt="Personal Portfolio website screenshot" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">';
+                } else {
+                    modalImageElement.textContent = `Project ${index + 1}`;
+                    modalImageElement.innerHTML = `Project ${index + 1}`;
+                }
+
+                document.getElementById('modalDescription').textContent = project.description;
+
+                const techContainer = document.getElementById('modalTechnologies');
+                techContainer.innerHTML = project.tech.map(t => `<span class="tech-tag">${t}</span>`).join('');
+
+                const featureContainer = document.getElementById('modalFeatures');
+                featureContainer.innerHTML = project.features.map(f => `<li>${f}</li>`).join('');
+
+                const liveLink = document.getElementById('modalLiveLink');
+                const repoLink = document.getElementById('modalRepoLink');
+
+                if (index === 0) {
+                    liveLink.href = 'https://jinzurei.github.io/wdd130/wwr/index.html';
+                    liveLink.setAttribute('rel', 'noopener noreferrer');
+                    liveLink.setAttribute('target', '_blank');
+                    
+                    repoLink.href = 'https://github.com/jinzurei/wdd130';
+                    repoLink.setAttribute('target', '_blank');
+                    repoLink.setAttribute('rel', 'noopener noreferrer');
+                    repoLink.style.display = 'inline-block';
+                    repoLink.textContent = 'GitHub Repo';
+                } else if (index === 1) {
+                    liveLink.href = '#home';
+                    liveLink.removeAttribute('target');
+                    liveLink.removeAttribute('rel');
+                    
+                    repoLink.href = '#';
+                    repoLink.style.display = 'inline-block';
+                    repoLink.textContent = 'GitHub Repo';
+                    repoLink.removeAttribute('target');
+                    repoLink.removeAttribute('rel');
+                } else if (index === 2) {
+                    liveLink.href = '#';
+                    repoLink.style.display = 'none';
+                } else {
+                    liveLink.href = '#';
+                    repoLink.style.display = 'none';
+                }
+
+                modal.element.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+
+                const modalContent = modal.element.querySelector('.modal-content');
+                modalContent.classList.remove('modal-glitch-in');
+                modalContent.offsetHeight;
+
+                setTimeout(() => {
+                    modalContent.classList.add('modal-glitch-in');
+                }, 10);
+            }
+
+            function hideModal() {
+                const modalContent = modal.element.querySelector('.modal-content');
+                modalContent.classList.remove('modal-glitch-in');
+
+                modal.element.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+
+            document.querySelectorAll('.portfolio-item').forEach((item, i) => {
+                item.addEventListener('click', () => showProject(projectInfo[i], i));
+            });
+
+            modal.close?.addEventListener('click', hideModal);
+            modal.element.addEventListener('click', (e) => {
+                if (e.target === modal.element) {
+                    hideModal();
+                }
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.element.style.display === 'block') {
+                    hideModal();
+                }
+            });
+        }
+
+        // Artwork card interactions
+        document.querySelectorAll('.art-card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('is-flipped');
+            });
+
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    card.classList.toggle('is-flipped');
+                }
+            });
+        });
+
+        // Scroll reveal animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const glitchObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const cards = entry.target.classList.contains('portfolio-grid')
+                        ? entry.target.querySelectorAll('.portfolio-item')
+                        : entry.target.querySelectorAll('.art-card');
+
+                    cards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('glitch-in');
+                        }, index * 150); // 150ms delay between each card
+                    });
+
+                    // Stop observing once animation is triggered
+                    glitchObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe portfolio and artwork grids
+        const portfolioGrid = document.querySelector('.portfolio-grid');
+        const artGrid = document.querySelector('.art-grid');
+
+        if (portfolioGrid) {
+            glitchObserver.observe(portfolioGrid);
+        }
+
+        if (artGrid) {
+            glitchObserver.observe(artGrid);
+        }
+    </script>
+
+    <!-- Twitter Widget Script -->
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    
+    <!-- Three.js Library (CDN - jsdelivr global build) -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.js"></script>
+    
+    <!-- Three.js Background Shader -->
+    <script src="scripts/background.js"></script>
+</body>
+</html>
