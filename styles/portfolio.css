@@ -1430,19 +1430,19 @@ button:focus:not(:focus-visible) {
 
 .art-title {
     color: #e0e0e0;
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
     font-weight: bold;
 }
 
 .art-meta {
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
 }
 
 .art-meta-line {
     color: #b0b0b0;
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.4rem;
 }
 
 .art-meta-line strong {
@@ -1451,8 +1451,8 @@ button:focus:not(:focus-visible) {
 
 .art-desc {
     color: #b0b0b0;
-    line-height: 1.6;
-    font-size: 0.95rem;
+    line-height: 1.5;
+    font-size: 0.85rem;
 }
 
 /* Reduced motion accessibility */
@@ -1504,11 +1504,11 @@ button:focus:not(:focus-visible) {
     }
 
     .art-title {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .art-desc {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 }
 
