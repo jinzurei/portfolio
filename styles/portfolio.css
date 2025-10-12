@@ -979,8 +979,20 @@ body {
     /* About section responsive */
     .about-content {
         grid-template-columns: 1fr;
+        grid-template-rows: auto;
         gap: 2rem;
         text-align: center;
+        padding: 30px 20px;
+    }
+
+    .about-image {
+        grid-row: auto;
+    }
+
+    .about-title {
+        grid-column: 1;
+        grid-row: auto;
+        justify-content: center;
     }
 
     .profile-picture {
@@ -989,6 +1001,8 @@ body {
     }
 
     .about-text {
+        grid-column: 1;
+        grid-row: auto;
         text-align: center;
     }
 
@@ -1071,6 +1085,16 @@ body {
 
     .modal-links .btn {
         min-width: auto;
+    }
+
+    /* GitHub Activity box mobile */
+    .github-graph-box {
+        padding: 30px 20px;
+    }
+
+    /* Contact section mobile */
+    .contact-section .container {
+        padding: 30px 20px;
     }
 }
 
