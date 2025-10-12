@@ -2,8 +2,6 @@
 
 A modern, interactive portfolio website featuring custom WebGL shader animations and glassmorphism design.
 
-![Portfolio Preview](photos/websitephoto.webp)
-
 ## 🚀 Features
 
 ### Visual Effects
