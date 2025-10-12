@@ -1,7 +1,7 @@
 /**
  * WebGL Shader Background - Jinzurei
  * Created: October 2025
- * Last Updated: October 11, 2025
+ * Last Updated: October 12, 2025
  * 
  * Features:
  * - Real-time WebGL shader rendering with Three.js
@@ -9,10 +9,16 @@
  * - 3D simplex noise for topographic contour animation
  * - RGB chromatic aberration glitch effects
  * - Performance-optimized animation loop
+ * - Graceful degradation for unsupported browsers
  * 
  * Dependencies:
  * - Three.js v0.158.0 (loaded globally from CDN)
+ * 
+ * @fileoverview WebGL shader background animation system
+ * @author Jinzurei
  */
+
+'use strict';
 
 // Three.js is loaded globally from CDN in index.html
 // No ES6 import needed - using window.THREE
