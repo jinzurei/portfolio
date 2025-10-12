@@ -1,7 +1,7 @@
 <!--
     Portfolio Website - Jin (@jinzurei)
     Created: October 2025
-    Last Updated: October 11, 2025
+    Last Updated: October 12, 2025
     
     Features:
     - Custom WebGL shader animations with Three.js
@@ -9,6 +9,7 @@
     - Responsive grid layouts
     - Interactive flip-card components
     - GitHub contribution integration
+    - WCAG 2.1 AA compliant accessibility
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -18,87 +19,97 @@
     <meta name="description" content="Tanner L - Web Developer and Digital Artist Portfolio showcasing interactive projects, digital illustrations, and game development work.">
     <meta name="author" content="Tanner L">
     <meta name="keywords" content="web developer, portfolio, digital artist, game development, front-end developer">
+    <meta name="theme-color" content="#000000">
+    <meta property="og:title" content="Tanner L - Portfolio">
+    <meta property="og:description" content="Web Developer and Digital Artist Portfolio showcasing interactive projects and digital illustrations">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jinzurei.github.io/Portfolio/">
     <title>Tanner L - Portfolio</title>
-    <link rel="stylesheet" href="styles/portfolio.css?v=4">
+    <link rel="stylesheet" href="styles/portfolio.css?v=11">
 </head>
 <body>
+    <!-- Skip to main content link for keyboard navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
-            <a href="#home" class="nav-logo">Tanner L</a>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
+            <a href="#home" class="nav-logo" aria-label="Tanner L - Return to homepage">Tanner L</a>
+            <ul class="nav-menu" role="menubar" aria-label="Primary navigation menu">
+                <li class="nav-item" role="none">
+                    <a href="#home" class="nav-link" role="menuitem" aria-label="Navigate to home section">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
+                <li class="nav-item" role="none">
+                    <a href="#about" class="nav-link" role="menuitem" aria-label="Navigate to about section">About</a>
                 </li>
-                <li class="nav-item">
-                    <a href="#portfolio" class="nav-link">Portfolio</a>
+                <li class="nav-item" role="none">
+                    <a href="#portfolio" class="nav-link" role="menuitem" aria-label="Navigate to portfolio section">Portfolio</a>
                 </li>
-                <li class="nav-item">
-                    <a href="#art" class="nav-link">Artworks</a>
+                <li class="nav-item" role="none">
+                    <a href="#art" class="nav-link" role="menuitem" aria-label="Navigate to artworks section">Artworks</a>
                 </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
+                <li class="nav-item" role="none">
+                    <a href="#contact" class="nav-link" role="menuitem" aria-label="Navigate to contact section">Contact</a>
                 </li>
             </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+            <button class="hamburger" aria-label="Toggle mobile navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero" role="banner" aria-label="Hero section with portfolio introduction">
-        <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1">
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero" role="banner" aria-label="Hero section with portfolio introduction">
+        <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1" aria-label="Background video of abstract flowing lights">
             <source src="photos/backgroundbydancristianpaduret.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
 
-        <div class="hero-overlay"></div>
+        <div class="hero-overlay" aria-hidden="true"></div>
 
         <div class="hero-overlay-box">
             <!-- Navigation shortcuts -->
-            <nav class="hero-nav">
-                <a href="#home" class="hero-nav-link">Home</a>
-                <a href="#about" class="hero-nav-link">About</a>
-                <a href="#portfolio" class="hero-nav-link">Portfolio</a>
-                <a href="#art" class="hero-nav-link">Artworks</a>
-                <a href="#contact" class="hero-nav-link">Contact</a>
+            <nav class="hero-nav" aria-label="Quick navigation links">
+                <a href="#home" class="hero-nav-link" aria-label="Jump to home section">Home</a>
+                <a href="#about" class="hero-nav-link" aria-label="Jump to about section">About</a>
+                <a href="#portfolio" class="hero-nav-link" aria-label="Jump to portfolio section">Portfolio</a>
+                <a href="#art" class="hero-nav-link" aria-label="Jump to artworks section">Artworks</a>
+                <a href="#contact" class="hero-nav-link" aria-label="Jump to contact section">Contact</a>
             </nav>
 
             <div class="hero-overlay-content">
-                <h1 class="hero-overlay-title">Visionary</h1>
-                <p class="hero-overlay-subtitle">Creating Tomorrow's Digital Experiences</p>
+                <h1 class="hero-overlay-title" aria-label="Main heading: Visionary">Visionary</h1>
+                <p class="hero-overlay-subtitle" aria-label="Tagline: Creating Tomorrow's Digital Experiences">Creating Tomorrow's Digital Experiences</p>
             </div>
         </div>
 
         <!-- Alternative hero content (hidden) -->
-        <div class="hero-content">
+        <div class="hero-content" aria-hidden="true">
             <h1 class="hero-title">Visionary</h1>
             <p class="hero-subtitle">Creating Tomorrow's Digital Experiences</p>
             <div class="hero-buttons">
-                <a href="#portfolio" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                <a href="#portfolio" class="btn btn-primary" aria-label="View my work - Navigate to portfolio">View My Work</a>
+                <a href="#contact" class="btn btn-secondary" aria-label="Get in touch - Navigate to contact form">Get In Touch</a>
             </div>
         </div>
 
         <div class="scroll-indicator">
-            <a href="#about" class="scroll-arrow"></a>
+            <a href="#about" class="scroll-arrow" aria-label="Scroll down to about section"></a>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section">
+    <section id="about" class="section" aria-labelledby="about-heading">
         <div class="container">
             <div class="about-content">
                 <div class="about-image">
-                    <img src="photos/profile.webp" alt="Tanner L - Profile Picture" class="profile-picture">
+                    <img src="photos/profile.webp" alt="Profile photo of Tanner L, a web developer and digital artist, smiling at the camera" class="profile-picture">
                 </div>
-                <h2 class="section-title about-title">About Me</h2>
+                <h2 id="about-heading" class="section-title about-title">About Me</h2>
                 <div class="about-text">
                     <p>Hi! I'm Tanner, a passionate creator who loves blending imagination and technology through digital content, game jams, and storytelling. I'm currently diving deeper into web development to expand my creative toolkit and bring bigger ideas to life.</p>
                     <p>Outside of coding, I enjoy exploring new projects, learning continuously, and pushing myself to grow. I'm also blessed with a lovely girlfriend who inspires and encourages me every step of the way, reminding me why I chase creativity and connection.</p>
@@ -108,112 +119,112 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="section portfolio-section">
+    <section id="portfolio" class="section portfolio-section" aria-labelledby="portfolio-heading">
         <div class="container">
-            <h2 class="section-title">My Work</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="photos/websitephoto.webp" alt="Rapidds Rafting — BYU-Idaho WDD130 class project homepage preview." style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
+            <h2 id="portfolio-heading" class="section-title">My Work</h2>
+            <div class="portfolio-grid" role="list" aria-label="Portfolio projects">
+                <article class="portfolio-item" role="listitem" aria-labelledby="project-rapidds">
+                    <figure class="portfolio-image">
+                        <img src="photos/websitephoto.webp" alt="Screenshot of Rapidds Rafting website homepage featuring hero image, navigation menu, and welcome content">
+                    </figure>
                     <div class="portfolio-info">
-                        <h3>Rapidds Rafting Tour Site</h3>
+                        <h3 id="project-rapidds">Rapidds Rafting Tour Site</h3>
                         <p>Class Web Development Project - A mock rafting website built for BYU-Idaho's WDD130 course showcasing front-end fundamentals.</p>
                     </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="photos/personalportfolio.webp" alt="Personal Portfolio Website">
-                    </div>
+                </article>
+                <article class="portfolio-item" role="listitem" aria-labelledby="project-portfolio">
+                    <figure class="portfolio-image">
+                        <img src="photos/personalportfolio.webp" alt="Screenshot of personal portfolio website featuring WebGL shader background with animated white contour lines and glassmorphism design">
+                    </figure>
                     <div class="portfolio-info">
-                        <h3>Personal Portfolio Website</h3>
+                        <h3 id="project-portfolio">Personal Portfolio Website</h3>
                         <p>Interactive portfolio showcasing work and combining skills from multiple classes with advanced animations.</p>
                     </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <div class="placeholder-image">Project 3</div>
-                    </div>
+                </article>
+                <article class="portfolio-item" role="listitem" aria-labelledby="project-3">
+                    <figure class="portfolio-image">
+                        <div class="placeholder-image" role="img" aria-label="Placeholder image for project 3">Project 3</div>
+                    </figure>
                     <div class="portfolio-info">
-                        <h3>Project Title 3</h3>
+                        <h3 id="project-3">Project Title 3</h3>
                         <p>Brief description of the project and technologies used.</p>
                     </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <div class="placeholder-image">Project 4</div>
-                    </div>
+                </article>
+                <article class="portfolio-item" role="listitem" aria-labelledby="project-ecommerce">
+                    <figure class="portfolio-image">
+                        <div class="placeholder-image" role="img" aria-label="Placeholder image for e-commerce platform project">Project 4</div>
+                    </figure>
                     <div class="portfolio-info">
-                        <h3>E-Commerce Platform</h3>
+                        <h3 id="project-ecommerce">E-Commerce Platform</h3>
                         <p>Full-stack e-commerce solution with React, Node.js, and MongoDB featuring payment integration and admin dashboard.</p>
                     </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <div class="placeholder-image">Project 5</div>
-                    </div>
+                </article>
+                <article class="portfolio-item" role="listitem" aria-labelledby="project-mobile">
+                    <figure class="portfolio-image">
+                        <div class="placeholder-image" role="img" aria-label="Placeholder image for mobile app design project">Project 5</div>
+                    </figure>
                     <div class="portfolio-info">
-                        <h3>Mobile App Design</h3>
+                        <h3 id="project-mobile">Mobile App Design</h3>
                         <p>UI/UX design for a fitness tracking mobile application with intuitive user interface and engaging user experience.</p>
                     </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <div class="placeholder-image">Project 6</div>
-                    </div>
+                </article>
+                <article class="portfolio-item" role="listitem" aria-labelledby="project-dashboard">
+                    <figure class="portfolio-image">
+                        <div class="placeholder-image" role="img" aria-label="Placeholder image for data visualization dashboard project">Project 6</div>
+                    </figure>
                     <div class="portfolio-info">
-                        <h3>Data Visualization Dashboard</h3>
+                        <h3 id="project-dashboard">Data Visualization Dashboard</h3>
                         <p>Interactive dashboard built with D3.js and Python for real-time analytics and business intelligence reporting.</p>
                     </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <div class="placeholder-image">Project 7</div>
-                    </div>
+                </article>
+                <article class="portfolio-item" role="listitem" aria-labelledby="project-chatbot">
+                    <figure class="portfolio-image">
+                        <div class="placeholder-image" role="img" aria-label="Placeholder image for AI chatbot project">Project 7</div>
+                    </figure>
                     <div class="portfolio-info">
-                        <h3>AI Chatbot Integration</h3>
+                        <h3 id="project-chatbot">AI Chatbot Integration</h3>
                         <p>Smart chatbot system using natural language processing and machine learning for customer service automation.</p>
                     </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <div class="placeholder-image">Project 8</div>
-                    </div>
+                </article>
+                <article class="portfolio-item" role="listitem" aria-labelledby="project-social">
+                    <figure class="portfolio-image">
+                        <div class="placeholder-image" role="img" aria-label="Placeholder image for social media platform project">Project 8</div>
+                    </figure>
                     <div class="portfolio-info">
-                        <h3>Social Media Platform</h3>
+                        <h3 id="project-social">Social Media Platform</h3>
                         <p>Modern social networking platform with real-time messaging, content sharing, and community features.</p>
                     </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <div class="placeholder-image">Project 9</div>
-                    </div>
+                </article>
+                <article class="portfolio-item" role="listitem" aria-labelledby="project-cloud">
+                    <figure class="portfolio-image">
+                        <div class="placeholder-image" role="img" aria-label="Placeholder image for cloud infrastructure project">Project 9</div>
+                    </figure>
                     <div class="portfolio-info">
-                        <h3>Cloud Infrastructure</h3>
+                        <h3 id="project-cloud">Cloud Infrastructure</h3>
                         <p>Scalable cloud architecture design and implementation using AWS services for enterprise-level applications.</p>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
 
     <!-- Project Modal -->
-    <div id="projectModal" class="modal">
+    <div id="projectModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
         <div class="modal-content">
-            <span class="modal-close">&times;</span>
+            <button class="modal-close" aria-label="Close project details modal">&times;</button>
             <div class="modal-header">
                 <h2 id="modalTitle">Project Title</h2>
             </div>
             <div class="modal-body">
                 <div class="modal-image">
-                    <div id="modalImage" class="modal-placeholder-image">Project Image</div>
+                    <div id="modalImage" class="modal-placeholder-image" role="img" aria-label="Project screenshot">Project Image</div>
                 </div>
                 <div class="modal-info">
                     <h3>Project Overview</h3>
                     <p id="modalDescription">Detailed project description will appear here.</p>
 
                     <h3>Technologies Used</h3>
-                    <div id="modalTechnologies" class="tech-tags">
+                    <div id="modalTechnologies" class="tech-tags" role="list" aria-label="Technology stack">
                         <!-- Technology tags will be inserted here -->
                     </div>
 
@@ -223,160 +234,182 @@
                     </ul>
 
                     <div class="modal-links">
-                        <a href="#" id="modalLiveLink" class="btn btn-primary" target="_blank">View Live</a>
-                        <a href="#" id="modalRepoLink" class="btn btn-github" target="_blank" style="display: none;">GitHub Repo</a>
+                        <a href="#" id="modalLiveLink" class="btn btn-primary" target="_blank" aria-label="View live project, opens in new tab">View Live</a>
+                        <a href="#" id="modalRepoLink" class="btn btn-github" target="_blank" style="display: none;" aria-label="View GitHub repository, opens in new tab">GitHub Repo</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- GitHub Contribution Graph Section -->
-    <section class="section github-graph-section">
+    <!-- GitHub Activity Section -->
+    <section class="section github-graph-section" aria-labelledby="github-activity-heading">
         <div class="container">
             <div class="github-graph-box">
-                <h2 class="section-title">Activity</h2>
+                <h2 id="github-activity-heading" class="section-title">Activity</h2>
+                
+                <!-- Two Column Layout: Streak & Badges -->
+                <div class="github-stats-row">
+                    <!-- GitHub Contribution Streak -->
+                    <div class="github-stats-left">
+                        <h3 class="github-subsection-title">Contribution Streak</h3>
+                        <img src="https://github-readme-streak-stats.herokuapp.com/?user=jinzurei&theme=dark&hide_border=true&background=333333&stroke=555&ring=007bff&fire=007bff&currStreakLabel=e0e0e0&sideLabels=e0e0e0&currStreakNum=e0e0e0&sideNums=b0b0b0&dates=b0b0b0&type=png&mode=weekly&card_height=150"
+                             alt="GitHub contribution streak statistics for jinzurei showing current streak, longest streak, and total contributions with visual graph"
+                             class="github-streak">
+                    </div>
+                    
+                    <!-- GitHub Badges -->
+                    <div class="github-stats-right">
+                        <h3 class="github-subsection-title">GitHub Stats</h3>
+                        <img src="https://github-readme-stats.vercel.app/api?username=jinzurei&show_icons=true&theme=dark&hide_border=true&bg_color=333333&title_color=007bff&icon_color=007bff&text_color=e0e0e0&count_private=true&card_height=150"
+                             alt="GitHub statistics for jinzurei showing total stars, commits, pull requests, and issues"
+                             class="github-stats">
+                    </div>
+                </div>
+                
+                <!-- GitHub Contribution Graph -->
                 <div class="github-graph-container">
-                    <img src="https://ghchart.rshah.org/007bff/jinzurei" alt="GitHub Contribution Graph" class="github-contribution-graph">
+                    <h3 class="github-subsection-title">Contribution Graph</h3>
+                    <img src="https://ghchart.rshah.org/007bff/jinzurei" alt="GitHub contribution graph for user jinzurei showing commit activity over the past year with color-coded frequency levels" class="github-contribution-graph">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Artworks Section -->
-    <section id="art" class="section art-section">
+    <section id="art" class="section art-section" aria-labelledby="artworks-heading">
         <div class="container">
-            <h2 class="section-title">Artworks</h2>
-            <div class="art-grid">
+            <h2 id="artworks-heading" class="section-title">Artworks</h2>
+            <div class="art-grid" role="list" aria-label="Digital artwork gallery">
                 <!-- ARTWORK 1: NieR Character Tribute - 2B -->
-                <div class="art-card" tabindex="0" aria-label="Flip artwork card">
+                <article class="art-card" tabindex="0" role="listitem" aria-label="Interactive flip card for NieR Character Tribute - 2B artwork, click or tap to view details">
                     <div class="art-card-inner">
-                        <div class="art-front">
-                            <img src="photos/2b.webp" alt="2B Artwork" class="art-image">
-                        </div>
+                        <figure class="art-front">
+                            <img src="photos/2b.webp" alt="Digital illustration of 2B from NieR Automata, featuring detailed character anatomy and atmospheric lighting in grayscale tones" class="art-image">
+                        </figure>
                         <div class="art-back">
                             <h3 class="art-title">NieR Character Tribute - 2B</h3>
-                            <div class="art-meta">
+                            <div class="art-meta" aria-label="Artwork metadata">
                                 <div class="art-meta-line"><strong>Character:</strong> 2B from NieR: Automata</div>
                                 <div class="art-meta-line"><strong>Medium:</strong> Digital Illustration</div>
                             </div>
                             <p class="art-desc">Character study exploring advanced digital painting techniques through fan art tribute of 2B from NieR: Automata. Demonstrates proficiency in anatomy and lighting composition while honoring the source material's iconic aesthetic through careful attention to character design fundamentals.</p>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- ARTWORK 2: Aeon Angel -->
-                <div class="art-card" tabindex="0" aria-label="Flip artwork card">
+                <article class="art-card" tabindex="0" role="listitem" aria-label="Interactive flip card for Aeon Angel artwork, click or tap to view details">
                     <div class="art-card-inner">
-                        <div class="art-front">
-                            <img src="photos/aeonangel.webp" alt="Aeon Angel Artwork" class="art-image">
-                        </div>
+                        <figure class="art-front">
+                            <img src="photos/aeonangel.webp" alt="Original character design of Aeon Angel, depicting an angel character in a comedic earthly setting with expressive pose and detailed costume design" class="art-image">
+                        </figure>
                         <div class="art-back">
                             <h3 class="art-title">Aeon Angel</h3>
-                            <div class="art-meta">
+                            <div class="art-meta" aria-label="Artwork metadata">
                                 <div class="art-meta-line"><strong>Medium:</strong> Digital Character Design</div>
                                 <div class="art-meta-line"><strong>Concept:</strong> Original Character</div>
                             </div>
                             <p class="art-desc">Original character conceptualization exploring narrative-driven design through visual development of an angel demoted to mundane earthly tasks after celestial mishaps. Demonstrates character personality expression through comedic storytelling integrated with intentional design language and visual narrative principles.</p>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- ARTWORK 3: Lily (Fartale) -->
-                <div class="art-card" tabindex="0" aria-label="Flip artwork card">
+                <article class="art-card" tabindex="0" role="listitem" aria-label="Interactive flip card for Lily from Fartale game artwork, click or tap to view details">
                     <div class="art-card-inner">
-                        <div class="art-front">
-                            <img src="photos/fartale.webp" alt="Fartale Artwork" class="art-image">
-                        </div>
+                        <figure class="art-front">
+                            <img src="photos/fartale.webp" alt="Character design of Lily, protagonist from Fartale game, featuring distinctive costume design and personality-driven pose against atmospheric background" class="art-image">
+                        </figure>
                         <div class="art-back">
                             <h3 class="art-title">Lily</h3>
-                            <div class="art-meta">
+                            <div class="art-meta" aria-label="Artwork metadata">
                                 <div class="art-meta-line"><strong>Medium:</strong> Digital Character Design</div>
                                 <div class="art-meta-line"><strong>Project:</strong> Fartale Game (In Development)</div>
                             </div>
                             <p class="art-desc">Protagonist design for Fartale demonstrating iterative design process through character evolution from initial game jam prototype into fully-realized production-ready asset. Showcases character development methodology applied to active game development project with emphasis on narrative-driven visual design.</p>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- ARTWORK 4: NieR Character Tribute - A2 -->
-                <div class="art-card" tabindex="0" aria-label="Flip artwork card">
+                <article class="art-card" tabindex="0" role="listitem" aria-label="Interactive flip card for NieR Character Tribute - A2 artwork, click or tap to view details">
                     <div class="art-card-inner">
-                        <div class="art-front">
-                            <img src="photos/nier.webp" alt="NieR Artwork" class="art-image">
-                        </div>
+                        <figure class="art-front">
+                            <img src="photos/nier.webp" alt="Digital illustration of A2 from NieR Automata in atmospheric melancholic setting with detailed lighting and emotional composition" class="art-image">
+                        </figure>
                         <div class="art-back">
                             <h3 class="art-title">NieR Character Tribute - A2</h3>
-                            <div class="art-meta">
+                            <div class="art-meta" aria-label="Artwork metadata">
                                 <div class="art-meta-line"><strong>Character:</strong> A2 from NieR: Automata</div>
                                 <div class="art-meta-line"><strong>Medium:</strong> Digital Illustration</div>
                             </div>
                             <p class="art-desc">Character tribute exploring advanced digital painting techniques through artistic homage to A2 from NieR: Automata. Captures the atmospheric melancholy of the emotionally resonant narrative while demonstrating ability to interpret established IP aesthetics and convey personal artistic voice through technical execution.</p>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- ARTWORK 5: Underworld Tree -->
-                <div class="art-card" tabindex="0" aria-label="Flip artwork card">
+                <article class="art-card" tabindex="0" role="listitem" aria-label="Interactive flip card for Underworld Tree environment art, click or tap to view details">
                     <div class="art-card-inner">
-                        <div class="art-front">
-                            <img src="photos/tree.webp" alt="Tree Artwork" class="art-image">
-                        </div>
+                        <figure class="art-front">
+                            <img src="photos/tree.webp" alt="Digital environment art featuring mystical underworld tree with atmospheric lighting and dimensional lore aesthetics for Fartale game" class="art-image">
+                        </figure>
                         <div class="art-back">
                             <h3 class="art-title">Underworld Tree</h3>
-                            <div class="art-meta">
+                            <div class="art-meta" aria-label="Artwork metadata">
                                 <div class="art-meta-line"><strong>Medium:</strong> Digital Environment Art</div>
                                 <div class="art-meta-line"><strong>Project:</strong> Fartale Game (In Development)</div>
                             </div>
                             <p class="art-desc">Environment concept art demonstrating asset reusability in game development through evolution from original game jam prototype into integrated production pipeline asset. Showcases atmospheric world-building with narrative environment design representing inter-dimensional lore connections for active game development project.</p>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- ARTWORK 6: Rapidds Rafting Logo -->
-                <div class="art-card" tabindex="0" aria-label="Flip artwork card">
+                <article class="art-card" tabindex="0" role="listitem" aria-label="Interactive flip card for Rapidds Rafting Logo design, click or tap to view details">
                     <div class="art-card-inner">
-                        <div class="art-front art-logo-card">
-                            <img src="photos/transparentlogo.webp" alt="Rapidds Rafting Logo" class="art-image">
-                        </div>
+                        <figure class="art-front art-logo-card">
+                            <img src="photos/transparentlogo.webp" alt="Rapidds Rafting brand logo featuring stylized water rapids iconography with bold typography optimized for multi-platform deployment" class="art-image">
+                        </figure>
                         <div class="art-back">
                             <h3 class="art-title">Rapidds Rafting Logo</h3>
-                            <div class="art-meta">
+                            <div class="art-meta" aria-label="Artwork metadata">
                                 <div class="art-meta-line"><strong>Medium:</strong> Digital Logo Design</div>
                                 <div class="art-meta-line"><strong>Created for:</strong> Rapidds Rafting Website</div>
                             </div>
                             <p class="art-desc">Brand identity design demonstrating logo creation and visual branding principles for Rapidds Rafting website project. Showcases typography selection and iconography integration with emphasis on brand recognition and scalable vector design optimized for multi-platform deployment.</p>
                         </div>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section contact-section">
+    <section id="contact" class="section contact-section" aria-labelledby="contact-heading">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
+            <h2 id="contact-heading" class="section-title">Get In Touch</h2>
             <div class="contact-content">
                 <div class="contact-info">
                     <h3>Let's Connect</h3>
                     <p>Ready to bring your vision to life? I'd love to hear about your project and explore how we can work together.</p>
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <strong>Email:</strong> <a href="mailto:Tanner.Livin@gmail.com" style="color: #007bff; text-decoration: none;">Tanner.Livin@gmail.com</a>
+                    <div class="contact-methods" role="list" aria-label="Contact information">
+                        <div class="contact-method" role="listitem">
+                            <strong>Email:</strong> <a href="mailto:Tanner.Livin@gmail.com" aria-label="Send email to Tanner.Livin@gmail.com">Tanner.Livin@gmail.com</a>
                         </div>
-                        <div class="contact-method">
-                            <strong>GitHub:</strong> <a href="https://github.com/jinzurei" target="_blank" rel="noopener noreferrer" style="color: #007bff; text-decoration: none;">github.com/jinzurei</a>
+                        <div class="contact-method" role="listitem">
+                            <strong>GitHub:</strong> <a href="https://github.com/jinzurei" target="_blank" rel="noopener noreferrer" aria-label="Visit Jinzurei's GitHub profile, opens in new tab">github.com/jinzurei</a>
                         </div>
-                        <div class="contact-method">
-                            <strong>Twitter:</strong> <a href="https://twitter.com/jinzurei" target="_blank" rel="noopener noreferrer" style="color: #007bff; text-decoration: none;">@jinzurei</a>
+                        <div class="contact-method" role="listitem">
+                            <strong>Twitter:</strong> <a href="https://twitter.com/jinzurei" target="_blank" rel="noopener noreferrer" aria-label="Visit Jinzurei's Twitter profile, opens in new tab">@jinzurei</a>
                         </div>
                     </div>
 
                     <!-- Twitter Feed Section -->
                     <div class="twitter-feed-section">
                         <h3>Latest Updates</h3>
-                        <div class="twitter-container">
+                        <div class="twitter-container" role="complementary" aria-label="Twitter timeline feed">
                             <a class="twitter-timeline"
                                data-height="400"
                                data-theme="dark"
@@ -384,47 +417,43 @@
                                data-tweet-limit="5"
                                data-show-replies="false"
                                data-aria-polite="polite"
-                               href="https://twitter.com/jinzurei?ref_src=twsrc%5Etfw">
+                               href="https://twitter.com/jinzurei?ref_src=twsrc%5Etfw"
+                               aria-label="Embedded Twitter timeline showing latest tweets from jinzurei">
 
                                <!-- Fallback content when tweets don't load -->
                                <div class="twitter-fallback">
                                    <p>Still here, just quiet on socials! 📱</p>
-                                   <p style="color: #b0b0b0; font-size: 0.9rem; margin-top: 1rem;">Focused on building cool projects instead.</p>
+                                   <p class="twitter-fallback-subtitle">Focused on building cool projects instead.</p>
                                </div>
                             </a>
                         </div>
                     </div>
                 </div>
                 <div class="contact-form-container">
-                    <form class="contact-form">
+                    <form class="contact-form" aria-labelledby="contact-form-heading">
+                        <h3 id="contact-form-heading" class="sr-only">Contact form</h3>
                         <div class="form-group">
-                            <input type="text" name="name" placeholder="Your Name" required>
+                            <label for="contact-name" class="sr-only">Your Name</label>
+                            <input type="text" id="contact-name" name="name" placeholder="Your Name" required aria-required="true">
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email" placeholder="Your Email" required>
+                            <label for="contact-email" class="sr-only">Your Email</label>
+                            <input type="email" id="contact-email" name="email" placeholder="Your Email" required aria-required="true">
                         </div>
                         <div class="form-group">
-                            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                            <label for="contact-message" class="sr-only">Your Message</label>
+                            <textarea id="contact-message" name="message" placeholder="Your Message" rows="5" required aria-required="true"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <button type="submit" class="btn btn-primary" aria-label="Send message">Send Message</button>
                     </form>
-
-                    <!-- GitHub Contributions Section -->
-                    <div class="github-contributions-section">
-                        <h3>GitHub Activity</h3>
-                        <div class="github-container">
-                            <img src="https://github-readme-streak-stats.herokuapp.com/?user=jinzurei&theme=dark&hide_border=true&background=333333&stroke=555&ring=007bff&fire=007bff&currStreakLabel=e0e0e0&sideLabels=e0e0e0&currStreakNum=e0e0e0&sideNums=b0b0b0&dates=b0b0b0&type=png&mode=weekly"
-                                 alt="GitHub Contribution Streak"
-                                 class="github-streak">
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo" aria-label="Site footer">
         <div class="container">
             <p>&copy; 2025 Tanner L | <span class="footer-handle">@jinzurei</span></p>
         </div>
@@ -578,9 +607,9 @@
 
                 const modalImageElement = document.getElementById('modalImage');
                 if (index === 0) {
-                    modalImageElement.innerHTML = '<img src="photos/websitephoto.webp" alt="Rapidds Rafting homepage screenshot" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">';
+                    modalImageElement.innerHTML = '<img src="photos/websitephoto.webp" alt="Rapidds Rafting homepage screenshot">';
                 } else if (index === 1) {
-                    modalImageElement.innerHTML = '<img src="photos/personalportfolio.webp" alt="Personal Portfolio website screenshot" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">';
+                    modalImageElement.innerHTML = '<img src="photos/personalportfolio.webp" alt="Personal Portfolio website screenshot">';
                 } else {
                     modalImageElement.textContent = `Project ${index + 1}`;
                     modalImageElement.innerHTML = `Project ${index + 1}`;

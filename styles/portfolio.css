@@ -1,13 +1,17 @@
 /*
  * Portfolio Stylesheet - Jinzurei
  * Created: October 2025
- * Last Updated: October 11, 2025
+ * Last Updated: October 12, 2025
  * 
  * Technologies:
  * - CSS3 Grid & Flexbox layouts
  * - Glassmorphism with backdrop-filter
  * - CSS animations and transforms
  * - Mobile-first responsive design
+ * - WCAG 2.1 AA accessibility standards
+ * 
+ * @fileoverview Main stylesheet for portfolio website
+ * @author Jinzurei
  */
 
 /* Reset and Base Styles */
@@ -27,6 +31,53 @@ body {
     color: #e0e0e0;
     overflow-x: hidden;
     background-color: transparent; /* Allow shader to show through */
+}
+
+/* Screen Reader Only - Accessibility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Skip to Main Content Link - Keyboard Accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #007bff;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    z-index: 10000;
+    font-weight: bold;
+    border-radius: 0 0 4px 0;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Global Focus Styles for Keyboard Navigation */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+/* Remove default outline but keep focus-visible */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+    outline: none;
 }
 
 .container {
@@ -554,6 +605,12 @@ body {
     overflow: hidden;
 }
 
+.portfolio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .placeholder-image {
     width: 100%;
     height: 100%;
@@ -653,6 +710,13 @@ body {
     margin-bottom: 30px;
     border-radius: 10px;
     overflow: hidden;
+}
+
+.modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 .modal-placeholder-image {
@@ -773,6 +837,17 @@ body {
     color: #b0b0b0;
 }
 
+.contact-method a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-method a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -803,34 +878,6 @@ body {
 }
 
 /* GitHub Contributions Section */
-.github-contributions-section {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid #555;
-}
-
-.github-contributions-section h3 {
-    color: #e0e0e0;
-    margin-bottom: 1.5rem;
-    font-size: 1.3rem;
-}
-
-.github-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-}
-
-.github-streak {
-    width: 100%;
-    max-width: 495px;
-    height: auto;
-    border-radius: 10px;
-    background: #333333;
-    border: 1px solid #555;
-}
-
 /* Twitter Feed Section */
 .twitter-feed-section {
     margin-top: 3rem;
@@ -865,6 +912,12 @@ body {
 .twitter-fallback p {
     margin: 0;
     line-height: 1.6;
+}
+
+.twitter-fallback-subtitle {
+    color: #b0b0b0;
+    font-size: 0.9rem;
+    margin-top: 1rem;
 }
 
 /* Override Twitter widget styling to match dark theme */
@@ -1104,6 +1157,12 @@ body {
         padding: 30px 20px;
     }
 
+    /* GitHub Stats Row - Stack on Mobile */
+    .github-stats-row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
     /* Contact section mobile */
     .contact-section .container {
         padding: 30px 20px;
@@ -1194,11 +1253,44 @@ body {
     margin-bottom: 2rem;
 }
 
+.github-stats-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.github-stats-left,
+.github-stats-right {
+    text-align: center;
+}
+
 .github-graph-container {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.github-graph-container:last-child {
+    margin-bottom: 0;
+}
+
+.github-subsection-title {
+    color: #e0e0e0;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
     text-align: center;
 }
 
 .github-contribution-graph {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.github-streak,
+.github-stats {
     width: 100%;
     height: auto;
     border-radius: 10px;
