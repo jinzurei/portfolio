@@ -10,12 +10,24 @@ A modern, interactive portfolio website featuring custom WebGL shader animations
 - **RGB Glitch Effects** - Dynamic chromatic aberration animations
 - **Smooth Animations** - CSS transforms and Intersection Observer API for scroll-triggered effects
 
+Detailed visual/features:
+- Animated topographic contour background with adjustable parameters (levels, thickness, speed, zoom).
+- Two GLSL animation variants supported:
+   1. Embedded shader (primary): shader sources embedded and driven by `scripts/background.js` — implements RGB-separated contour bands, gradient tinting, glitch bursts, and runtime uniform control.
+   2. External shader files (alternate): `shaders/contour.vert` and `shaders/contour.frag` — an external fragment/vertex pair that produces anti-aliased contour lines optimized for overlay and transparency.
+- Graceful degradation: checks for `OES_standard_derivatives` and falls back or reduces effects on unsupported devices.
+- Accessibility-aware motion: honors `prefers-reduced-motion` and exposes a visible/keyboard-accessible UI with focus-visible styles.
+
 ### Interactive Components
 - **Flip Cards** - 3D perspective transforms for project and artwork displays
 - **Modal System** - Detailed project information with dynamic content
 - **Contact Form** - Integrated form with validation
 - **GitHub Integration** - Live contribution activity graph
 - **Social Media Widgets** - Twitter/X timeline integration
+
+More interactive details:
+- Flip cards are keyboard focusable and toggle via `Enter`/`Space`; they include `aria-label` and `role="listitem"` for screen readers.
+- Modals trap focus while open and restore focus on close; images and extended content include descriptive `alt` text.
 
 ### Technical Highlights
 - **Performance Optimized** - Efficient animation loops and rendering
@@ -32,6 +44,20 @@ A modern, interactive portfolio website featuring custom WebGL shader animations
 - **GLSL** - Custom vertex and fragment shaders
 - **Intersection Observer API** - Scroll animations
 
+### Detailed tech notes
+
+- **Three.js (v0.158.0)**: used for scene setup, camera, renderer, and shader material bootstrapping. Custom GLSL shaders live in the `/shaders` directory and are compiled at runtime by the `background.js` module.
+- **GLSL (vertex + fragment)**: custom shaders implement 3D simplex noise, contour banding, and RGB glitch effects. Shaders are loaded and passed uniforms (time, resolution, mouse) from `background.js`.
+ - **GLSL (vertex + fragment)**: custom shaders and animation wiring are original work by **Jinzurei**. Shaders implement 3D simplex noise, contour banding, and RGB glitch effects; they are stored in `/shaders` and are compiled/controlled at runtime by `scripts/background.js` which handles uniforms, render loop, and graceful degradation.
+- **Accessibility tooling**: focus-visible polyfill (CSS-based focus styles), ARIA roles and labels on interactive components, skip-to-main-content link, and reduced-motion support via `prefers-reduced-motion` media query.
+- **Assets**: Images and media are stored in `/photos`. Large assets are WebP where possible for compression; also included a fallback mechanism for older browsers.
+- **Development tooling**: This project uses simple dev workflow (no bundler). Recommended tools for contributors:
+   - EditorConfig for consistent indentation
+   - Prettier (optional) for formatting
+   - ESLint (optional) with the `eslint:recommended` rules if you add a build step
+
+These detailed notes are intended to help contributors understand where to find shader code, asset locations, and accessibility considerations.
+
 ## 📁 Project Structure
 
 ```
@@ -46,6 +72,20 @@ portfolio/
 ├── CREDITS.md             # Attribution and licensing
 ├── LICENSE                # MIT License
 └── README.md              # This file
+```
+Correct structure (actual files present):
+
+```
+portfolio/
+├── index.html
+├── styles/portfolio.css
+├── scripts/background.js
+├── photos/ (webp and fallback images)
+├── shaders/contour.vert
+├── shaders/contour.frag
+├── CREDITS.md
+├── LICENSE
+└── README.md
 ```
 
 ## 🎨 Design Features
@@ -79,16 +119,20 @@ Custom GLSL shaders create an animated topographic visualization:
    ```
 
 2. **Open in browser**
-   - Option A: Open `index.html` directly in your browser
-   - Option B: Use a local server (recommended):
-     ```bash
-     # Python 3
-     python -m http.server 8000
+    - Option A: Open `index.html` directly in your browser (double-click the file or use your editor's preview)
+    - Option B: Use a local server (recommended):
+       ```bash
+       # Python 3
+       python -m http.server 8000
      
-     # Node.js (with http-server)
-     npx http-server
-     ```
-   - Navigate to `http://localhost:8000`
+       # Node.js (with http-server)
+       npx http-server
+       ```
+    - Option C (Windows PowerShell quick preview):
+       ```powershell
+       Start-Process msedge -ArgumentList "--new-window", "file:///$PWD/index.html"
+       ```
+    - Navigate to `http://localhost:8000` (if using a server)
 
 ### Customization
 
@@ -109,10 +153,10 @@ Custom GLSL shaders create an animated topographic visualization:
    ];
    ```
 
-3. **Styling** - Customize colors in `portfolio.css`:
+3. **Styling** - Customize colors in `styles/portfolio.css`:
    - Primary color: `#007bff`
    - Glass backgrounds: `rgba(0, 0, 0, 0.7)`
-   - Text colors: Modify color variables
+   - Text colors: Modify color tokens near the top of the file
 
 4. **Images** - Replace files in `photos/` folder:
    - Profile picture: `profile.webp`
@@ -133,15 +177,17 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 - **Three.js**: v0.158.0 ([threejs.org](https://threejs.org/))
 - **GitHub Charts**: ghchart.rshah.org
 
+**Note:** The GLSL shader code and the JavaScript that drives the WebGL animation (uniforms, render loop, shader compilation) are original work by **Jinzurei** and are included in this repository.
+
 See [CREDITS.md](CREDITS.md) for complete attribution.
 
-## ⚠️ Usage Terms
+## Usage & Licensing
 
-You are free to fork and use this portfolio as a template, but you **MUST**:
-- ✅ Credit Jinzurei (@jinzurei) as the original creator
-- ✅ Credit all third-party contributors (see CREDITS.md)
-- ✅ Include proper attribution in your fork
-- ✅ Maintain the MIT License
+This project is licensed under the **MIT License** (see `LICENSE`). The MIT License does not legally require attribution, but attribution and credit to third-party authors is appreciated. Recommended guidelines when reusing this project:
+
+- Keep the `LICENSE` file in your distribution
+- Retain or adapt `CREDITS.md` to acknowledge third-party assets you include
+- If you redistribute the background video or any third-party media, follow the asset's original license and attribution rules
 
 ## 📧 Contact
 
@@ -152,4 +198,5 @@ You are free to fork and use this portfolio as a template, but you **MUST**:
 
 ⭐ If you found this helpful, please consider giving it a star!
 
-**Last Updated**: October 11, 2025
+**Last Updated**: October 20, 2025
+ 
