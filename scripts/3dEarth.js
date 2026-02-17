@@ -27,9 +27,10 @@ function init3DEarth() {
         container.style.right = '6vw';
         container.style.zIndex = '5';
         const hero = document.querySelector('.hero');
-        const nav = document.querySelector('.navbar');
+        const nav = document.querySelector('.main-nav');
         const heroHeight = hero ? hero.getBoundingClientRect().height : window.innerHeight;
-        const navHeight = nav ? nav.getBoundingClientRect().height : 0;
+        // Initially nav is centered, so no height deduction needed
+        const navHeight = nav && nav.classList.contains('morphed') ? nav.getBoundingClientRect().height : 0;
         const availableHeight = Math.max(0, heroHeight - navHeight);
         // slightly reduce planet size so the hero text remains the focal point
         const planetDiameter = Math.floor(availableHeight * 0.72);

@@ -33,6 +33,64 @@ body {
     background-color: transparent; /* Allow shader to show through */
 }
 
+/* --- Custom universal scrollbar (overlay) --- */
+/* Hide native scrollbars while keeping functionality */
+html, body {
+    scrollbar-width: none; /* Firefox */
+}
+
+*::-webkit-scrollbar {
+    width: 0; /* Chrome/Safari/WebKit */
+    height: 0;
+}
+
+/* Fixed overlay scrollbar container */
+.custom-scrollbar {
+    position: fixed;
+    right: 12px;
+    top: 12px;
+    bottom: 12px;
+    width: 14px;
+    z-index: 900; /* sit below navbar (navbar z-index:1000) */
+    pointer-events: none; /* allow page interactions when not hovering */
+}
+
+.custom-scrollbar .track {
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.custom-scrollbar .thumb {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    pointer-events: auto; /* enable interactions on thumb */
+    overflow: hidden;
+}
+
+.custom-scrollbar .thumb canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.custom-scrollbar .thumb:hover {
+    transform: translateX(-50%) scale(1.05);
+}
+
+/* Make sure custom scrollbar doesn't show on very small screens where native UX is preferable */
+@media (max-width: 720px) {
+    .custom-scrollbar { display: none; }
+}
+
 /* Screen Reader Only - Accessibility */
 .sr-only {
     position: absolute;
@@ -87,71 +145,273 @@ button:focus:not(:focus-visible) {
 }
 
 /* Navigation */
-.navbar {
+.main-nav {
     position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transform-origin: center top;
+    width: 80%;
+    /* Ensure the nav never becomes wider than the viewport minus inset space */
+    max-width: min(600px, calc(100% - 32px));
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    padding: 2rem 1.5rem;
     z-index: 1000;
-    transition: all 0.3s ease;
+    transition: 
+        transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1),
+        top 0.22s ease-out 0s,
+        width 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s,
+        border-radius 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s,
+        background 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s,
+        box-shadow 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s,
+        padding 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    will-change: transform, top, width, border-radius, background, box-shadow, padding;
 }
 
-.navbar.scrolled {
-    background: rgba(0, 0, 0, 0.9);
+.main-nav.morphed {
+    /* keep the morphed header visible: pin slightly below the viewport top
+       (accounts for safe-area and avoids jumping out of view on scroll) */
+    top: calc(env(safe-area-inset-top, 0px) + 8px);
+    transform-origin: center top;
+    /* inset slightly from the left/right so rounded corners remain visible */
+    left: 16px;
+    transform: translate(0, 0) scale(1);
+    width: calc(100% - 32px);
+    max-width: none;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 12px;
+    /* Thinner final header */
+    padding: 0.2rem 0.85rem;
+    box-shadow: 0 3px 18px rgba(0, 0, 0, 0.6);
+    animation: settleBounce 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 1.0s both;
 }
 
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem 10px;
+/* Ensure the final text-swapped state also keeps rounded corners */
+.main-nav.text-swapped {
+    left: 16px;
+    width: calc(100% - 32px);
+    border-radius: 12px;
+}
+
+/* Make the morphed header compact immediately: hide the large hero title
+   and force the compact brand/font so the header doesn't remain oversized */
+.main-nav.morphed .nav-title {
+    font-size: 1.1rem;
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.main-nav.morphed .visionary-text {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.main-nav.morphed .tanner-text {
+    opacity: 1;
+    visibility: visible;
+    font-size: 1rem;
+}
+
+/* Hide the longer tagline when the header is morphed so only "Tanner L" remains */
+.main-nav.morphed .nav-tagline {
+    display: none;
+}
+
+@keyframes settleBounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-2px); }
+    100% { transform: translateY(0); }
+}
+
+.nav-content {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s;
+}
+
+.main-nav.morphed .nav-content {
+    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-brand {
+    text-align: center;
+    position: relative;
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.7s;
+}
+
+.main-nav.morphed .nav-brand {
+    /* Keep brand visible through the morph. The text swap to 'Tanner L' is
+       strictly controlled by the .text-swapped class (added via JS on
+       transitionend). Do NOT reveal 'Tanner L' during the morph. */
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+}
+
+.nav-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.visionary-text {
+    opacity: 1;
+    visibility: visible;
+}
+
+.tanner-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden; /* locked until .text-swapped */
+    transition: opacity 0.45s ease, visibility 0s 0.45s, transform 0.45s cubic-bezier(0.2,1,0.2,1);
+}
+
+.main-nav.text-swapped .visionary-text {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0s 0.4s;
+}
+
+.main-nav.text-swapped .tanner-text {
+    /* Reveal Tanner L only after the morph finishes and JS adds .text-swapped */
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    font-size: 1rem; /* compact in the thin header */
+    transition: opacity 0.5s ease 0.1s, visibility 0s, transform 0.45s cubic-bezier(0.2,1,0.2,1);
+}
+
+.main-nav.text-swapped .nav-brand {
+    /* Left-align and make the brand occupy natural flow for final header */
+    text-align: left;
+    display: flex;
     align-items: center;
 }
 
-.nav-logo {
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-decoration: none;
-    transition: color 0.3s ease;
+.main-nav.text-swapped .nav-content {
+    justify-content: space-between;
 }
 
-.nav-logo:hover {
-    color: #007bff;
+.nav-tagline {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0.5rem 0 0 0;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.main-nav.text-swapped .nav-tagline {
+    opacity: 0;
+    transform: scale(0.8);
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
     gap: 2rem;
+    margin: 0;
+    padding: 0;
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s;
+}
+
+.main-nav.morphed .nav-menu {
+    gap: 2.5rem;
+}
+
+.nav-item {
+    margin: 0;
 }
 
 .nav-link {
     color: white;
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
 }
 
 .nav-link:hover {
     color: #007bff;
+    background: rgba(255, 255, 255, 0.1);
 }
 
-/* Mobile menu */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
+.main-nav.morphed .nav-link {
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
 }
 
-.bar {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 3px 0;
-    transition: 0.3s;
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-nav {
+        width: 90%;
+        padding: 1.5rem 1rem;
+    }
+
+    .main-nav.morphed {
+        padding: 0.75rem 1rem;
+    }
+
+    .nav-title {
+        font-size: 2.5rem;
+    }
+
+    .nav-menu {
+        gap: 1.5rem;
+    }
+
+    .main-nav.morphed .nav-menu {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-nav {
+        width: 95%;
+        padding: 1.25rem 0.75rem;
+    }
+
+    .nav-title {
+        font-size: 2rem;
+    }
+
+    .nav-tagline {
+        font-size: 1rem;
+    }
+
+    .nav-menu {
+        gap: 1rem;
+    }
+
+    .main-nav.morphed .nav-menu {
+        gap: 1rem;
+    }
+
+    .nav-link {
+        font-size: 1rem;
+        padding: 0.4rem 0.6rem;
+    }
 }
 
 /* Hero Section */
@@ -210,44 +470,7 @@ button:focus:not(:focus-visible) {
 
 /* Main overlay content */
 .hero-overlay-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    max-width: 600px;
-    background: rgba(0, 0, 0, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 15px;
-    padding: 40px 30px;
-    backdrop-filter: blur(10px);
-    text-align: center;
-    animation: fadeInUp 1s ease-out;
-    z-index: 10;
-}
-
-.hero-nav {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-bottom: 40px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.hero-nav-link {
-    color: white;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 400;
-    transition: all 0.3s ease;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-.hero-nav-link:hover {
-    color: #007bff;
-    background: rgba(255, 255, 255, 0.1);
+    display: none; /* Navigation moved to main-nav */
 }
 
 .hero-overlay-content {

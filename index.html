@@ -31,9 +31,13 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
     <!-- Navigation -->
-    <nav class="navbar" role="navigation" aria-label="Main navigation">
-        <div class="nav-container">
-            <a href="#home" class="nav-logo" aria-label="Tanner L - Return to homepage">Tanner L</a>
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-content">
+            <div class="nav-brand">
+                <h1 class="nav-title visionary-text" aria-label="Visionary">Visionary</h1>
+                <p class="nav-tagline" aria-label="Creating Tomorrow's Digital Experiences">Creating Tomorrow's Digital Experiences</p>
+                <h1 class="nav-title tanner-text" aria-label="Tanner L">Tanner L</h1>
+            </div>
             <ul class="nav-menu" role="menubar" aria-label="Primary navigation menu">
                 <li class="nav-item" role="none">
                     <a href="#home" class="nav-link" role="menuitem" aria-label="Navigate to home section">Home</a>
@@ -51,11 +55,6 @@
                     <a href="#contact" class="nav-link" role="menuitem" aria-label="Navigate to contact section">Contact</a>
                 </li>
             </ul>
-            <button class="hamburger" aria-label="Toggle mobile navigation menu" aria-expanded="false" aria-controls="nav-menu">
-                <span class="bar" aria-hidden="true"></span>
-                <span class="bar" aria-hidden="true"></span>
-                <span class="bar" aria-hidden="true"></span>
-            </button>
         </div>
     </nav>
 
@@ -68,19 +67,7 @@
         <div class="hero-overlay" aria-hidden="true"></div>
 
         <div class="hero-overlay-box">
-            <!-- Navigation shortcuts -->
-            <nav class="hero-nav" aria-label="Quick navigation links">
-                <a href="#home" class="hero-nav-link" aria-label="Jump to home section">Home</a>
-                <a href="#about" class="hero-nav-link" aria-label="Jump to about section">About</a>
-                <a href="#portfolio" class="hero-nav-link" aria-label="Jump to portfolio section">Portfolio</a>
-                <a href="#art" class="hero-nav-link" aria-label="Jump to artworks section">Artworks</a>
-                <a href="#contact" class="hero-nav-link" aria-label="Jump to contact section">Contact</a>
-            </nav>
-
-            <div class="hero-overlay-content">
-                <h1 class="hero-overlay-title" aria-label="Main heading: Visionary">Visionary</h1>
-                <p class="hero-overlay-subtitle" aria-label="Tagline: Creating Tomorrow's Digital Experiences">Creating Tomorrow's Digital Experiences</p>
-            </div>
+            <!-- Navigation is now handled by the main nav above -->
         </div>
 
         <!-- Starfield layer (placed between black glass and the 3D Earth) -->
@@ -773,10 +760,14 @@
     
     <!-- Three.js Background Shader -->
     <script src="scripts/background.js"></script>
-    
+
     <!-- 3D Earth -->
     <script src="scripts/3dEarth.js"></script>
     <!-- Starfield background (canvas) -->
     <script src="scripts/starfield-init.js"></script>
+    <!-- Custom overlay scrollbar (WebGL thumb) -->
+    <script src="scripts/custom-scrollbar.js"></script>
+    <!-- Navigation morph animation -->
+    <script src="scripts/nav-morph.js"></script>
 </body>
 </html>
