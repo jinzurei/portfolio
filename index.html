@@ -179,33 +179,6 @@
                         <p>Interactive dashboard built with D3.js and Python for real-time analytics and business intelligence reporting.</p>
                     </div>
                 </article>
-                <article class="portfolio-item" role="listitem" aria-labelledby="project-chatbot">
-                    <figure class="portfolio-image">
-                        <div class="placeholder-image" role="img" aria-label="Placeholder image for AI chatbot project">Project 7</div>
-                    </figure>
-                    <div class="portfolio-info">
-                        <h3 id="project-chatbot">AI Chatbot Integration</h3>
-                        <p>Smart chatbot system using natural language processing and machine learning for customer service automation.</p>
-                    </div>
-                </article>
-                <article class="portfolio-item" role="listitem" aria-labelledby="project-social">
-                    <figure class="portfolio-image">
-                        <div class="placeholder-image" role="img" aria-label="Placeholder image for social media platform project">Project 8</div>
-                    </figure>
-                    <div class="portfolio-info">
-                        <h3 id="project-social">Social Media Platform</h3>
-                        <p>Modern social networking platform with real-time messaging, content sharing, and community features.</p>
-                    </div>
-                </article>
-                <article class="portfolio-item" role="listitem" aria-labelledby="project-cloud">
-                    <figure class="portfolio-image">
-                        <div class="placeholder-image" role="img" aria-label="Placeholder image for cloud infrastructure project">Project 9</div>
-                    </figure>
-                    <div class="portfolio-info">
-                        <h3 id="project-cloud">Cloud Infrastructure</h3>
-                        <p>Scalable cloud architecture design and implementation using AWS services for enterprise-level applications.</p>
-                    </div>
-                </article>
             </div>
         </div>
     </section>
@@ -244,36 +217,83 @@
         </div>
     </div>
 
-    <!-- GitHub Activity Section -->
-    <section class="section github-graph-section" aria-labelledby="github-activity-heading">
+    <!-- Stack Section -->
+    <section id="stack" class="section stack-section" aria-labelledby="stack-heading">
         <div class="container">
             <div class="github-graph-box">
-                <h2 id="github-activity-heading" class="section-title">Activity</h2>
-                
-                <!-- Two Column Layout: Streak & Badges -->
-                <div class="github-stats-row">
-                    <!-- GitHub Contribution Streak -->
-                    <div class="github-stats-left">
-                        <h3 class="github-subsection-title">Contribution Streak</h3>
-                        <img src="https://github-readme-streak-stats.herokuapp.com/?user=jinzurei&theme=dark&hide_border=true&background=333333&stroke=555&ring=007bff&fire=007bff&currStreakLabel=e0e0e0&sideLabels=e0e0e0&currStreakNum=e0e0e0&sideNums=b0b0b0&dates=b0b0b0&type=png&mode=weekly&card_height=150"
-                             alt="GitHub contribution streak statistics for jinzurei showing current streak, longest streak, and total contributions with visual graph"
-                             class="github-streak">
-                    </div>
-                    
-                    <!-- GitHub Badges -->
-                    <div class="github-stats-right">
-                        <h3 class="github-subsection-title">GitHub Stats</h3>
-                        <img src="https://github-readme-stats.vercel.app/api?username=jinzurei&show_icons=true&theme=dark&hide_border=true&bg_color=333333&title_color=007bff&icon_color=007bff&text_color=e0e0e0&count_private=true&card_height=150"
-                             alt="GitHub statistics for jinzurei showing total stars, commits, pull requests, and issues"
-                             class="github-stats">
-                    </div>
-                </div>
-                
-                <!-- GitHub Contribution Graph -->
-                <div class="github-graph-container">
-                    <h3 class="github-subsection-title">Contribution Graph</h3>
-                    <img src="https://ghchart.rshah.org/007bff/jinzurei" alt="GitHub contribution graph for user jinzurei showing commit activity over the past year with color-coded frequency levels" class="github-contribution-graph">
-                </div>
+            <h2 id="stack-heading" class="section-title">Stack</h2>
+            <p class="section-subtitle" style="text-align:center; margin-bottom:1.5rem; color:var(--muted,#bdbdbd);">Technologies & tools I use — click for official sites. Hover for context.</p>
+
+            <div class="stack-grid" role="list" aria-label="Technology stack">
+
+                <a class="stack-item" role="listitem" href="https://www.javascript.com/" target="_blank" rel="noopener noreferrer" data-tooltip="JavaScript — Core frontend scripting + DOM">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/javascript/javascript-original.svg" alt="JavaScript logo">
+                </a>
+
+                <a class="stack-item" role="listitem" href="https://www.python.org/" target="_blank" rel="noopener noreferrer" data-tooltip="Python — AI, games, local tools">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/python/python-original.svg" alt="Python logo">
+                </a>
+
+                <a class="stack-item" role="listitem" href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer" data-tooltip="HTML5 — Semantic markup, responsive layouts">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/html5/html5-original.svg" alt="HTML5 logo">
+                </a>
+
+                <a class="stack-item" role="listitem" href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer" data-tooltip="CSS3 — Responsive layouts, animations, glassmorphism">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/css3/css3-original.svg" alt="CSS3 logo">
+                </a>
+
+                <a class="stack-item" role="listitem" href="https://threejs.org/" target="_blank" rel="noopener noreferrer" data-tooltip="Three.js — WebGL 3D rendering">
+                    <img class="icon-white" src="https://threejs.org/favicon.ico" alt="Three.js logo">
+                </a>
+
+                <a class="stack-item" role="listitem" href="https://www.khronos.org/webgl/" target="_blank" rel="noopener noreferrer" data-tooltip="WebGL + GLSL Shaders — Custom shaders">
+                    <img src="https://www.khronos.org/favicon.ico" alt="WebGL logo">
+                </a>
+
+                <a class="stack-item" role="listitem" href="https://www.pygame.org/" target="_blank" rel="noopener noreferrer" data-tooltip="Pygame — 2D game engine basics">
+                    <img src="https://www.pygame.org/favicon.ico" alt="Pygame logo">
+                </a>
+
+                <a class="stack-item" role="listitem" href="https://www.panda3d.org/" target="_blank" rel="noopener noreferrer" data-tooltip="Panda3D — 3D game engine">
+                    <img src="https://www.panda3d.org/favicon.ico" alt="Panda3D logo">
+                </a>
+
+                <a class="stack-item" role="listitem" href="https://langchain.com/" target="_blank" rel="noopener noreferrer" data-tooltip="LangChain — AI chaining & memory">
+                    <img src="https://images.prismic.io/contrary-research/Z5vMC5bqstJ9-Dx7_LangChain_Square.png?auto=format%2Ccompress&fit=max&w=256" alt="LangChain logo">
+                </a>
+
+                <a class="stack-item" role="listitem" href="https://www.llama.com/" target="_blank" rel="noopener noreferrer" data-tooltip="Local LLMs (llama.cpp) — Privacy-first AI">
+                    <img src="https://pngimg.com/uploads/meta/meta_PNG5.png" alt="Meta logo">
+                </a>
+
+                <a class="stack-item" role="listitem" href="https://vitejs.dev/" target="_blank" rel="noopener noreferrer" data-tooltip="Vite — Fast modern bundler">
+                    <img class="icon-white" src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/vite.svg" alt="Vite logo">
+                </a>
+
+                <a class="stack-item" role="listitem" href="https://git-scm.com/" target="_blank" rel="noopener noreferrer" data-tooltip="Git / GitHub Actions — Version control + CI/linting/testing">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/git/git-original.svg" alt="Git logo">
+                </a>
+
+                <a class="stack-item" role="listitem" href="https://dotnet.microsoft.com/" target="_blank" rel="noopener noreferrer" data-tooltip="C# / .NET — Fundamentals & algorithms">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/csharp/csharp-original.svg" alt="C# logo">
+                </a>
+
+                <a class="stack-item" role="listitem" href="https://reactjs.org/" target="_blank" rel="noopener noreferrer" data-tooltip="React — Frontend library">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/react/react-original.svg" alt="React logo">
+                </a>
+
+                <a class="stack-item" role="listitem" href="https://nodejs.org/" target="_blank" rel="noopener noreferrer" data-tooltip="Node.js — Backend runtime">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/nodejs/nodejs-original.svg" alt="Node.js logo">
+                </a>
+
+                <a class="stack-item" role="listitem" href="https://learn.microsoft.com/powershell/" target="_blank" rel="noopener noreferrer" data-tooltip="PowerShell — Automation, scripting & DevOps">
+                    <img src="https://gist.github.com/Xainey/d5bde7d01dcbac51ac951810e94313aa/raw/6c858c46726541b48ddaaebab29c41c07a196394/PowerShell.svg" alt="PowerShell logo">
+                </a>
+
+                <a class="stack-item" role="listitem" href="https://www.figma.com/" target="_blank" rel="noopener noreferrer" data-tooltip="Figma — Prototyping, design → code handoff">
+                    <img class="icon-white" src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/figma.svg" alt="Figma logo">
+                </a>
+
             </div>
         </div>
     </section>
