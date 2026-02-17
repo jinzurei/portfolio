@@ -23,7 +23,6 @@
     <meta property="og:title" content="Tanner L - Portfolio">
     <meta property="og:description" content="Web Developer and Digital Artist Portfolio showcasing interactive projects and digital illustrations">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://jinzurei.github.io/Portfolio/">
     <title>Tanner L - Portfolio</title>
     <link rel="stylesheet" href="styles/portfolio.css?v=12">
 </head>
@@ -64,10 +63,7 @@
     <main id="main-content">
         <!-- Hero Section -->
         <section id="home" class="hero" role="banner" aria-label="Hero section with portfolio introduction">
-        <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1" aria-label="Background video of abstract flowing lights">
-            <source src="photos/backgroundbydancristianpaduret.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        <div class="hero-glass" aria-hidden="true"></div>
 
         <div class="hero-overlay" aria-hidden="true"></div>
 
@@ -86,6 +82,12 @@
                 <p class="hero-overlay-subtitle" aria-label="Tagline: Creating Tomorrow's Digital Experiences">Creating Tomorrow's Digital Experiences</p>
             </div>
         </div>
+
+        <!-- Starfield layer (placed between black glass and the 3D Earth) -->
+        <div id="starfield-layer" aria-hidden="true"></div>
+
+        <!-- 3D Earth Container -->
+        <div id="3dEarth-container" aria-hidden="true"></div>
 
         <!-- Alternative hero content (hidden) -->
         <div class="hero-content" aria-hidden="true">
@@ -751,5 +753,10 @@
     
     <!-- Three.js Background Shader -->
     <script src="scripts/background.js"></script>
+    
+    <!-- 3D Earth -->
+    <script src="scripts/3dEarth.js"></script>
+    <!-- Starfield background (canvas) -->
+    <script src="scripts/starfield-init.js"></script>
 </body>
 </html>
