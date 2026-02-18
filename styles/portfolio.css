@@ -470,7 +470,13 @@ button:focus:not(:focus-visible) {
 /* Hero Section */
 .hero {
     position: relative;
-    height: 100vh;
+    /* Use flexible min-height to avoid mobile browser address-bar / viewport
+       quirks that make 100vh render incorrectly on small devices. Prefer
+       svh when available, fall back to vh. Keep height:auto so content can
+       flow if the viewport changes. */
+    min-height: 100svh;
+    min-height: 100vh;
+    height: auto;
     overflow: hidden;
     display: flex;
     align-items: center;
