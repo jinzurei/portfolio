@@ -414,6 +414,20 @@ button:focus:not(:focus-visible) {
     }
 }
 
+/* On very small screens keep the morphed / text-swapped header centered
+   to avoid having a secondary pinned box on the left (mobile UI quirk). */
+@media (max-width: 480px) {
+    .main-nav.morphed,
+    .main-nav.text-swapped {
+        left: 50% !important;
+        transform: translate(-50%, 0) !important;
+        width: 95% !important;
+        max-width: min(600px, calc(100% - 32px)) !important;
+        border-radius: 50px !important;
+        padding: 1rem 0.75rem !important;
+    }
+}
+
 /* --------------------------------------------------------------------------
    Force Desktop `.main-nav` Layout on Mobile
    Keep the exact same navigation appearance and behavior across all
@@ -2307,3 +2321,44 @@ button:focus:not(:focus-visible) {
         border: 2px solid rgba(255, 255, 255, 0.1);
     }
 }
+
+/* Final mobile safety overrides: ensure nav remains centered and make the
+   3D Earth responsive on very small screens so it remains visible. */
+@media (max-width: 480px) {
+    .main-nav,
+    .main-nav.morphed,
+    .main-nav.text-swapped {
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 95% !important;
+        max-width: calc(100% - 32px) !important;
+        border-radius: 50px !important;
+        padding: 1rem 0.75rem !important;
+    }
+
+    /* So the hero visuals don't create a heavy boxed area, soften overlays */
+    .hero-glass,
+    .hero-overlay {
+        background: rgba(0,0,0,0.25) !important;
+        backdrop-filter: blur(6px) !important;
+        -webkit-backdrop-filter: blur(6px) !important;
+    }
+
+    /* Show and scale the 3D Earth for small screens (responsive sizing).
+       Keep it behind the nav (nav z-index:1000) and limit max dimensions. */
+    #3dEarth-container {
+        display: block !important;
+        position: absolute !important;
+        right: 4vw !important;
+        left: auto !important;
+        top: 55% !important;
+        transform: translateY(-50%) !important;
+        width: 36vw !important;
+        height: 36vw !important;
+        max-width: 260px !important;
+        max-height: 260px !important;
+        z-index: 5 !important;
+        opacity: 0.95 !important;
+    }
+}
+
