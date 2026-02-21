@@ -25,6 +25,35 @@
     <meta property="og:type" content="website">
     <title>Tanner L - Portfolio</title>
     <link rel="stylesheet" href="styles/portfolio.css?v=12">
+    <!-- Inline override to force black-glass modal visuals (high specificity to bypass caching/override issues) -->
+    <style id="modal-glass-override">
+        /* Overlay: translucent so backdrop-filter shows through */
+        #projectModal {
+            background-color: rgba(0,0,0,0.55) !important;
+            backdrop-filter: blur(12px) saturate(130%) !important;
+            -webkit-backdrop-filter: blur(12px) saturate(130%) !important;
+        }
+
+        /* Modal panel: true black glass with subtle gradient, border and shadow */
+        #projectModal .modal-content {
+            background: linear-gradient(180deg, rgba(12,12,12,0.48), rgba(6,6,6,0.30)) !important;
+            backdrop-filter: blur(14px) saturate(140%) !important;
+            -webkit-backdrop-filter: blur(14px) saturate(140%) !important;
+            border: 1px solid rgba(255,255,255,0.045) !important;
+            box-shadow: 0 30px 90px rgba(0,0,0,0.72), inset 0 4px 12px rgba(255,255,255,0.02) !important;
+            border-radius: 14px !important;
+        }
+
+        /* Make carousel caption and controls slightly brighter to read against glass */
+        #projectModal .carousel-caption {
+            background: rgba(255,255,255,0.035) !important;
+            color: #eef6ff !important;
+        }
+        #projectModal .carousel-control {
+            background: rgba(255,255,255,0.03) !important;
+            border-color: rgba(255,255,255,0.04) !important;
+        }
+    </style>
 </head>
 <body>
     <!-- Skip to main content link for keyboard navigation -->
@@ -119,6 +148,13 @@
                     <div class="portfolio-info">
                         <h3 id="project-rapidds">Rapidds Rafting Tour Site</h3>
                         <p>Class Web Development Project - A mock rafting website built for BYU-Idaho's WDD130 course showcasing front-end fundamentals.</p>
+                        <div class="project-tech" aria-label="Tech stack">
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer" data-tooltip="HTML5 — Semantic markup, responsive layouts"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/html5/html5-original.svg" alt="HTML5"></a>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer" data-tooltip="CSS3 — Responsive layouts, animations, glassmorphism"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/css3/css3-original.svg" alt="CSS3"></a>
+                            <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer" data-tooltip="Git — Version control"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/git/git-original.svg" alt="Git"></a>
+                            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" data-tooltip="GitHub — Source hosting & Actions"><img class="icon-white" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/github/github-original.svg" alt="GitHub"></a>
+                            <a href="https://learn.microsoft.com/powershell/" target="_blank" rel="noopener noreferrer" data-tooltip="PowerShell — Automation, scripting & DevOps"><img src="https://gist.github.com/Xainey/d5bde7d01dcbac51ac951810e94313aa/raw/6c858c46726541b48ddaaebab29c41c07a196394/PowerShell.svg" alt="PowerShell"></a>
+                        </div>
                     </div>
                 </article>
                 <article class="portfolio-item" role="listitem" aria-labelledby="project-portfolio">
@@ -127,34 +163,72 @@
                     </figure>
                     <div class="portfolio-info">
                         <h3 id="project-portfolio">Personal Portfolio Website</h3>
-                        <p>Interactive portfolio showcasing work and combining skills from multiple classes with advanced animations.</p>
+                        <p>A modern, interactive portfolio website featuring custom WebGL shader animations and glassmorphism design.</p>
+                        <div class="project-tech" aria-label="Tech stack">
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer" data-tooltip="HTML5 — Semantic markup, responsive layouts"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/html5/html5-original.svg" alt="HTML5"></a>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer" data-tooltip="CSS3 — Responsive layouts, animations, glassmorphism"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/css3/css3-original.svg" alt="CSS3"></a>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer" data-tooltip="JavaScript — Core frontend scripting + DOM"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/javascript/javascript-original.svg" alt="JavaScript"></a>
+                            <a href="https://threejs.org/" target="_blank" rel="noopener noreferrer" data-tooltip="Three.js — WebGL 3D rendering"><img src="https://threejs.org/favicon.ico" alt="Three.js" class="icon-white"></a>
+                            <a href="https://www.khronos.org/webgl/" target="_blank" rel="noopener noreferrer" data-tooltip="WebGL — GLSL shaders & GPU"><img src="https://www.khronos.org/favicon.ico" alt="WebGL"></a>
+                            <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer" data-tooltip="TypeScript — Typed JavaScript for safer code"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/typescript/typescript-original.svg" alt="TypeScript"></a>
+                            <a href="https://www.json.org/json-en.html" target="_blank" rel="noopener noreferrer" data-tooltip="JSON — Lightweight data interchange format"><img src="https://www.vectorlogo.zone/logos/json/json-icon.svg" alt="JSON" title="JSON"></a>
+                            <a href="https://learn.microsoft.com/powershell/" target="_blank" rel="noopener noreferrer" data-tooltip="PowerShell — Automation, scripting & DevOps"><img src="https://gist.github.com/Xainey/d5bde7d01dcbac51ac951810e94313aa/raw/6c858c46726541b48ddaaebab29c41c07a196394/PowerShell.svg" alt="PowerShell"></a>
+                        </div>
                     </div>
                 </article>
-                <article class="portfolio-item" role="listitem" aria-labelledby="project-3">
+                <article class="portfolio-item" role="listitem" aria-labelledby="project-iamthefool">
                     <figure class="portfolio-image">
-                        <div class="placeholder-image" role="img" aria-label="Placeholder image for project 3">Project 3</div>
+                        <img src="photos/iamthefool.webp" alt="Screenshot of I Am The Fool game showing the player character navigating through procedurally generated levels with parallax background">
                     </figure>
                     <div class="portfolio-info">
-                        <h3 id="project-3">Project Title 3</h3>
-                        <p>Brief description of the project and technologies used.</p>
+                        <h3 id="project-iamthefool">I Am The Fool</h3>
+                        <p>A modular 2D platformer engine built from scratch featuring custom physics, infinite procedural levels, and advanced game architecture.</p>
+                        <div class="project-tech" aria-label="Tech stack">
+                            <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer" data-tooltip="Python — Game development, physics engine"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/python/python-original.svg" alt="Python"></a>
+                            <a href="https://www.pygame.org/" target="_blank" rel="noopener noreferrer" data-tooltip="Pygame — 2D game framework"><img src="https://www.pygame.org/favicon.ico" alt="Pygame"></a>
+                            <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer" data-tooltip="Git — Version control"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/git/git-original.svg" alt="Git"></a>
+                            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" data-tooltip="GitHub — Source hosting & Actions"><img class="icon-white" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/github/github-original.svg" alt="GitHub"></a>
+                            <a href="https://learn.microsoft.com/powershell/" target="_blank" rel="noopener noreferrer" data-tooltip="PowerShell — Automation, scripting & DevOps"><img src="https://gist.github.com/Xainey/d5bde7d01dcbac51ac951810e94313aa/raw/6c858c46726541b48ddaaebab29c41c07a196394/PowerShell.svg" alt="PowerShell"></a>
+                        </div>
                     </div>
                 </article>
-                <article class="portfolio-item" role="listitem" aria-labelledby="project-ecommerce">
+                <article class="portfolio-item" role="listitem" aria-labelledby="project-wdd131">
                     <figure class="portfolio-image">
-                        <div class="placeholder-image" role="img" aria-label="Placeholder image for e-commerce platform project">Project 4</div>
+                        <img src="photos/wdd131.webp" alt="Screenshot of WDD 131 course project showing interactive temple gallery with filtering capabilities">
                     </figure>
                     <div class="portfolio-info">
-                        <h3 id="project-ecommerce">E-Commerce Platform</h3>
-                        <p>Full-stack e-commerce solution with React, Node.js, and MongoDB featuring payment integration and admin dashboard.</p>
+                        <h3 id="project-wdd131">WDD 131 Course Project</h3>
+                        <p>Comprehensive web development course featuring interactive applications, API integration, and responsive design patterns.</p>
+                        <div class="project-tech" aria-label="Tech stack">
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer" data-tooltip="HTML5 — Semantic markup, responsive layouts"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/html5/html5-original.svg" alt="HTML5"></a>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer" data-tooltip="CSS3 — Responsive layouts, animations"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/css3/css3-original.svg" alt="CSS3"></a>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer" data-tooltip="JavaScript — DOM manipulation, API integration"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/javascript/javascript-original.svg" alt="JavaScript"></a>
+                            <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer" data-tooltip="Git — Version control"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/git/git-original.svg" alt="Git"></a>
+                            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" data-tooltip="GitHub — Source hosting & Pages"><img class="icon-white" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/github/github-original.svg" alt="GitHub"></a>
+                            <a href="https://learn.microsoft.com/powershell/" target="_blank" rel="noopener noreferrer" data-tooltip="PowerShell — Automation, scripting & DevOps"><img src="https://gist.github.com/Xainey/d5bde7d01dcbac51ac951810e94313aa/raw/6c858c46726541b48ddaaebab29c41c07a196394/PowerShell.svg" alt="PowerShell"></a>
+                        </div>
                     </div>
                 </article>
-                <article class="portfolio-item" role="listitem" aria-labelledby="project-mobile">
+                <article class="portfolio-item" role="listitem" aria-labelledby="project-ignis">
                     <figure class="portfolio-image">
-                        <div class="placeholder-image" role="img" aria-label="Placeholder image for mobile app design project">Project 5</div>
+                        <img src="photos/ignis.webp" alt="Screenshot of Ignis AI assistant interface showing chat conversation with advanced memory capabilities">
                     </figure>
                     <div class="portfolio-info">
-                        <h3 id="project-mobile">Mobile App Design</h3>
-                        <p>UI/UX design for a fitness tracking mobile application with intuitive user interface and engaging user experience.</p>
+                        <h3 id="project-ignis">Ignis AI Assistant</h3>
+                        <p>Sophisticated local AI assistant with advanced memory systems, personality evolution, and cognitive architectures.</p>
+                        <div class="project-tech" aria-label="Tech stack">
+                            <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer" data-tooltip="Python — AI, backend, memory systems"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/python/python-original.svg" alt="Python"></a>
+                            <a href="https://fastapi.tiangolo.com/" target="_blank" rel="noopener noreferrer" data-tooltip="FastAPI — RESTful API framework"><img src="https://github.com/fastapi.png" alt="FastAPI"></a>
+                            <a href="https://www.llama.com/" target="_blank" rel="noopener noreferrer" data-tooltip="llama.cpp — Local LLM inference"><img src="https://pngimg.com/uploads/meta/meta_PNG5.png" alt="Meta"></a>
+                            <a href="https://www.trychroma.com/" target="_blank" rel="noopener noreferrer" data-tooltip="ChromaDB — Vector database for AI memory"><img src="https://github.com/chroma-core.png" alt="ChromaDB"></a>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer" data-tooltip="JavaScript — Frontend interface"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/javascript/javascript-original.svg" alt="JavaScript"></a>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer" data-tooltip="HTML5 — Web interface markup"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/html5/html5-original.svg" alt="HTML5"></a>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer" data-tooltip="CSS3 — Interface styling"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/css3/css3-original.svg" alt="CSS3"></a>
+                            <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer" data-tooltip="Git — Version control"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/git/git-original.svg" alt="Git"></a>
+                            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" data-tooltip="GitHub — Source hosting & Actions"><img class="icon-white" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/github/github-original.svg" alt="GitHub"></a>
+                            <a href="https://en.wikipedia.org/wiki/Batch_file" target="_blank" rel="noopener noreferrer" data-tooltip="Batch — Automation scripts"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/windows8/windows8-original.svg" alt="Batch"></a>
+                            <a href="https://learn.microsoft.com/powershell/" target="_blank" rel="noopener noreferrer" data-tooltip="PowerShell — Automation, scripting & DevOps"><img src="https://gist.github.com/Xainey/d5bde7d01dcbac51ac951810e94313aa/raw/6c858c46726541b48ddaaebab29c41c07a196394/PowerShell.svg" alt="PowerShell"></a>
+                        </div>
                     </div>
                 </article>
                 <article class="portfolio-item" role="listitem" aria-labelledby="project-dashboard">
@@ -164,6 +238,16 @@
                     <div class="portfolio-info">
                         <h3 id="project-dashboard">Data Visualization Dashboard</h3>
                         <p>Interactive dashboard built with D3.js and Python for real-time analytics and business intelligence reporting.</p>
+                        <div class="project-tech" aria-label="Tech stack">
+                            <a href="https://d3js.org/" target="_blank" rel="noopener noreferrer" data-tooltip="D3.js — Data visualization library"><img src="https://d3js.org/logo.svg" alt="D3.js"></a>
+                            <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer" data-tooltip="Python — Data processing, analytics"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/python/python-original.svg" alt="Python"></a>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer" data-tooltip="JavaScript — Interactive visualizations"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/javascript/javascript-original.svg" alt="JavaScript"></a>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer" data-tooltip="HTML5 — Dashboard markup"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/html5/html5-original.svg" alt="HTML5"></a>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer" data-tooltip="CSS3 — Dashboard styling"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/css3/css3-original.svg" alt="CSS3"></a>
+                            <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer" data-tooltip="Git — Version control"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/git/git-original.svg" alt="Git"></a>
+                            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" data-tooltip="GitHub — Source hosting & Actions"><img class="icon-white" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/github/github-original.svg" alt="GitHub"></a>
+                            <a href="https://learn.microsoft.com/powershell/" target="_blank" rel="noopener noreferrer" data-tooltip="PowerShell — Automation, scripting & DevOps"><img src="https://gist.github.com/Xainey/d5bde7d01dcbac51ac951810e94313aa/raw/6c858c46726541b48ddaaebab29c41c07a196394/PowerShell.svg" alt="PowerShell"></a>
+                        </div>
                     </div>
                 </article>
             </div>
@@ -179,15 +263,37 @@
             </div>
             <div class="modal-body">
                 <div class="modal-image">
-                    <div id="modalImage" class="modal-placeholder-image" role="img" aria-label="Project screenshot">Project Image</div>
+                    <!-- Bootstrap-style carousel inserted inside existing #modalImage -->
+                    <div id="modalImage" class="modal-carousel" role="region" aria-label="Project images carousel">
+                        <div class="carousel-inner" id="carouselSlides">
+                            <div class="carousel-item active">
+                                <img src="photos/websitephoto.webp" alt="Project image">
+                                <div class="carousel-caption" id="carouselCaption">Project Image</div>
+                            </div>
+                        </div>
+
+                        <button type="button" class="carousel-control carousel-control-prev" id="carouselPrev" aria-label="Previous slide"></button>
+                        <button type="button" class="carousel-control carousel-control-next" id="carouselNext" aria-label="Next slide"></button>
+
+                        <ol class="carousel-indicators" id="carouselIndicators">
+                            <!-- indicators injected here -->
+                        </ol>
+                    </div>
                 </div>
                 <div class="modal-info">
                     <h3>Project Overview</h3>
                     <p id="modalDescription">Detailed project description will appear here.</p>
 
-                    <h3>Technologies Used</h3>
+                    <h3>Role & Responsibilities</h3>
+                    <p id="modalRole">Role and responsibilities for this project will appear here.</p>
+
+                    <div id="modalTags" class="tech-tags" aria-label="Project tags">
+                        <!-- Optional tags (e.g. Design, Frontend, Backend) -->
+                    </div>
+
+                    <h3>Stack</h3>
                     <div id="modalTechnologies" class="tech-tags" role="list" aria-label="Technology stack">
-                        <!-- Technology tags will be inserted here -->
+                        <!-- Technology icons will be inserted here -->
                     </div>
 
                     <h3>Key Features</h3>
@@ -279,6 +385,30 @@
 
                 <a class="stack-item" role="listitem" href="https://www.figma.com/" target="_blank" rel="noopener noreferrer" data-tooltip="Figma — Prototyping, design → code handoff">
                     <img class="icon-white" src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/figma.svg" alt="Figma logo">
+                </a>
+
+                <a class="stack-item" role="listitem" href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer" data-tooltip="TypeScript — Typed JavaScript for safer code">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/typescript/typescript-original.svg" alt="TypeScript logo">
+                </a>
+
+                <a class="stack-item" role="listitem" href="https://www.json.org/json-en.html" target="_blank" rel="noopener noreferrer" data-tooltip="JSON — Lightweight data interchange format">
+                    <img src="https://www.vectorlogo.zone/logos/json/json-icon.svg" alt="JSON logo">
+                </a>
+
+                <a class="stack-item" role="listitem" href="https://github.com/" target="_blank" rel="noopener noreferrer" data-tooltip="GitHub — Source hosting & Actions">
+                    <img class="icon-white" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/github/github-original.svg" alt="GitHub logo">
+                </a>
+
+                <a class="stack-item" role="listitem" href="https://www.trychroma.com/" target="_blank" rel="noopener noreferrer" data-tooltip="ChromaDB — Vector database for AI memory">
+                    <img src="https://github.com/chroma-core.png" alt="ChromaDB logo">
+                </a>
+
+                <a class="stack-item" role="listitem" href="https://fastapi.tiangolo.com/" target="_blank" rel="noopener noreferrer" data-tooltip="FastAPI — RESTful API framework">
+                    <img src="https://github.com/fastapi.png" alt="FastAPI logo">
+                </a>
+
+                <a class="stack-item" role="listitem" href="https://en.wikipedia.org/wiki/Batch_file" target="_blank" rel="noopener noreferrer" data-tooltip="Batch — Automation scripts">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/windows8/windows8-original.svg" alt="Batch logo">
                 </a>
 
             </div>
@@ -395,6 +525,22 @@
         </div>
     </section>
 
+    <script>
+        // Ensure hovering/focusing the project icons triggers the card hover visual.
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.portfolio-item').forEach(function (item) {
+                var tech = item.querySelector('.project-tech');
+                if (!tech) return;
+                // Make the portfolio item focusable so we can restore focus to it later
+                item.setAttribute('tabindex', '0');
+                tech.addEventListener('mouseenter', function () { item.classList.add('hover-sim'); });
+                tech.addEventListener('mouseleave', function () { item.classList.remove('hover-sim'); });
+                tech.addEventListener('focusin', function () { item.classList.add('hover-sim'); });
+                tech.addEventListener('focusout', function () { item.classList.remove('hover-sim'); });
+            });
+        });
+    </script>
+
     <!-- Contact Section -->
     <section id="contact" class="section contact-section" aria-labelledby="contact-heading">
         <div class="container">
@@ -484,21 +630,24 @@
             element: document.getElementById('projectModal'),
             close: document.querySelector('.modal-close')
         };
+        let modalLastFocus = null;
 
-        nav.hamburger?.addEventListener('click', () => {
-            nav.hamburger.classList.toggle('active');
-            nav.menu.classList.toggle('active');
-        });
+        if (nav.hamburger) {
+            nav.hamburger.addEventListener('click', () => {
+                nav.hamburger.classList.toggle('active');
+                nav.menu?.classList.toggle('active');
+            });
+        }
 
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
-                nav.hamburger.classList.remove('active');
-                nav.menu.classList.remove('active');
+                nav.hamburger?.classList.remove('active');
+                nav.menu?.classList.remove('active');
             });
         });
 
         document.addEventListener('scroll', () => {
-            nav.bar.classList.toggle('scrolled', window.scrollY > 100);
+            if (nav.bar) nav.bar.classList.toggle('scrolled', window.scrollY > 100);
         });
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -539,107 +688,240 @@
             {
                 title: "Rapidds Rafting Tour Site",
                 description: "Responsive multi-page website demonstrating semantic HTML5 architecture and modern CSS methodologies. Implemented component-based design patterns with cross-browser compatibility and web standards compliance. Deployed using continuous integration via GitHub Pages.",
-                tech: ["HTML5", "CSS3", "GitHub Pages", "Flexbox", "CSS Grid"],
+                tech: ["HTML5", "CSS3", "GitHub Pages", "Git", "GitHub", "PowerShell"],
+                tags: ["solo", "student-project", "front-end"],
                 features: ["Mobile-first responsive design with Flexbox and Grid layouts", "Component-based architecture with modular CSS", "Multi-route navigation system across 4+ pages", "Third-party API integration (Google Maps)", "Performance optimization with WebP image format", "W3C standards validation and accessibility compliance"]
             },
 
             // PROJECT 2: Personal Portfolio Website
             {
                 title: "Personal Portfolio Website",
-                description: "Interactive portfolio website showcasing front-end development skills through advanced animations and modern design techniques. Features custom WebGL shader effects with Three.js for dynamic background visualizations, combined with glassmorphism UI principles for a polished, contemporary aesthetic. Built entirely with vanilla JavaScript to demonstrate core programming proficiency without framework dependencies.",
-                tech: ["Three.js", "WebGL/GLSL", "JavaScript ES6+", "CSS3 Grid", "HTML5", "Intersection Observer API"],
-                features: ["Real-time WebGL shader rendering with custom GLSL shaders", "Glassmorphism design with backdrop-filter blur effects", "CSS Grid responsive layouts with auto-fit columns", "3D flip-card animations using CSS perspective transforms", "Intersection Observer API for scroll-triggered animations", "Performance-optimized animation frame loop", "Mobile-first responsive breakpoints", "Cross-browser compatibility (Chrome, Firefox, Safari, Edge)"]
+                description: "A high-performance creative showcase built 100% in vanilla JavaScript + Three.js. Features original real-time GLSL shaders (topographic contours with 3D simplex noise + RGB glitch bursts), glassmorphism UI with backdrop blur, and buttery-smooth WebGL animations — optimized for smooth performance with graceful degradation.",
+                tech: ["Three.js", "WebGL/GLSL", "JavaScript ES6+", "CSS3 Grid", "HTML5", "Intersection Observer API", "PowerShell", "Git", "GitHub"],
+                features: ["Original GLSL shaders with 3D simplex noise for real-time topographic contours and RGB glitch effects", "Animated starfield background using procedural noise and dynamic scheduling", "Glassmorphism UI with backdrop-filter blur and layered depth effects", "3D flip cards and interactive project displays with CSS perspective transforms", "Custom WebGL-powered animated scrollbar variant", "3D Earth model with overlaid ASCII JSON frame animations", "Performance-optimized with graceful degradation and prefers-reduced-motion support", "Fully vanilla JavaScript + Three.js (no heavy frameworks), mobile-first responsive design"]
             },
 
-            // PROJECT 3: Placeholder
+            // PROJECT 3: I Am The Fool
             {
-                title: "Project Title 3",
-                description: "A feature-rich application that demonstrates proficiency in modern development practices. Built with attention to detail and optimized for performance.",
-                tech: ["Angular", "TypeScript", "Firebase", "SCSS"],
-                features: ["Progressive Web App (PWA)", "Offline functionality", "Push notifications", "Material Design UI"]
+                title: "I Am The Fool",
+                description: "A modular 2D platformer engine built from scratch in Python and Pygame, featuring custom physics, infinite procedural levels, and advanced game architecture. Implements symplectic Euler integration for frame-rate independent physics, variable-height jumping with easing curves, and a sophisticated camera system with parallax scrolling.",
+                role: "Solo, Full-Stack Game Developer, Game Engine Architect, Physics Programmer, DevOps - https://github.com/jinzurei/IAmTheFool",
+                tech: ["Python", "Pygame", "Git", "GitHub", "PowerShell"],
+                features: ["Custom physics engine with symplectic Euler integration", "Infinite procedural level generation with CSV tilemaps", "Advanced camera system with smooth following and parallax", "Variable-height jumping with configurable easing curves", "Collision detection with predictive correction", "Modular architecture with separate core, entities, and scenes", "Death screen with menu navigation", "Cross-platform compatibility"]
             },
 
-            // PROJECT 4: E-Commerce Platform
+            // PROJECT 4: WDD 131 Course Project
             {
-                title: "E-Commerce Platform",
-                description: "A complete e-commerce solution featuring product management, secure payment processing, and comprehensive admin controls. Built for scalability and optimal user experience.",
-                tech: ["React", "Node.js", "MongoDB", "Stripe", "Redux"],
-                features: ["Secure payment integration", "Advanced product filtering", "Real-time inventory management", "Admin dashboard", "Order tracking"]
+                title: "WDD 131 Course Project",
+                description: "A comprehensive web development course project featuring multiple interactive applications built with modern web technologies. Includes a responsive temple gallery with filtering, a dynamic plant encyclopedia with API integration, and various JavaScript applications demonstrating DOM manipulation, API consumption, and responsive design principles.",
+                role: "Solo, Student Project, Front End, Responsive Web Design, UI/UX, Search Engine Developer - jinzurei.github.io/wdd131/",
+                tech: ["HTML5", "CSS3", "JavaScript", "Trefle.io API", "Pixabay API", "GitHub Pages", "PowerShell", "Git", "GitHub"],
+                features: ["Responsive temple gallery with dynamic filtering", "Interactive plant encyclopedia with botanical API", "Local CSV data mapping for search accuracy", "Mobile-first responsive design patterns", "Progressive enhancement techniques", "Cross-browser compatibility testing", "Performance optimization with lazy loading", "Accessibility compliance with WCAG guidelines"]
             },
 
-            // PROJECT 5: Mobile App Design
+            // PROJECT 5: Ignis AI Assistant
             {
-                title: "Mobile App Design",
-                description: "A comprehensive UI/UX design for a fitness tracking application. Focus on intuitive user experience, engaging visual design, and seamless user journey optimization.",
-                tech: ["Figma", "Adobe XD", "Sketch", "InVision", "Principle"],
-                features: ["Intuitive interface design", "Interactive prototyping", "User journey mapping", "Accessibility focused", "Cross-platform compatibility"]
+                title: "Ignis AI Assistant",
+                description: "A sophisticated local AI assistant built with Python, featuring advanced memory systems, personality evolution, and cognitive architectures. Implements local LLM inference using llama.cpp, multi-layered memory with episodic and semantic components, and a dynamic personality engine that adapts through conversation. Includes web interface, API endpoints, and comprehensive testing suite.",
+                role: "Lead AI Engineer, Local LLM Inference, Cognitive Systems Architect, Personality Engine Programmer, Performance & Optimization Engineer - https://github.com/jinzurei/Ignis",
+                tech: ["Python", "FastAPI", "llama.cpp", "ChromaDB", "JavaScript", "HTML5", "CSS3", "GitHub", "Batch-file", "HTML", "CSS", "PowerShell", "Git"],
+                features: ["Local LLM inference with Hermes-2-Pro-Mistral-7B model", "Multi-layered memory system with episodic recall", "Dynamic personality engine with trait evolution", "Advanced conversation planning and context management", "Web-based chat interface with modern UI", "RESTful API with comprehensive endpoints", "Automated testing with pytest and async support", "Performance optimization with GPU acceleration", "Memory consolidation and spaced repetition", "Hallucination detection and correction"]
             },
 
             // PROJECT 6: Data Visualization Dashboard
             {
                 title: "Data Visualization Dashboard",
                 description: "An interactive dashboard for real-time analytics and business intelligence. Features dynamic charts, customizable reports, and seamless data integration.",
-                tech: ["D3.js", "Python", "Flask", "PostgreSQL", "Chart.js"],
+                tech: ["D3.js", "Python", "JavaScript", "HTML5", "CSS3", "Git", "GitHub", "PowerShell"],
                 features: ["Real-time data visualization", "Interactive charts", "Customizable layouts", "Export functionality", "Advanced filtering"]
-            },
-
-            // PROJECT 7: AI Chatbot Integration
-            {
-                title: "AI Chatbot Integration",
-                description: "An intelligent chatbot system powered by natural language processing and machine learning. Designed for customer service automation with human-like interactions.",
-                tech: ["Python", "TensorFlow", "NLP", "Flask", "WebSocket"],
-                features: ["Natural language understanding", "Context-aware conversations", "Multi-language support", "System integration", "Analytics insights"]
-            },
-
-            // PROJECT 8: Social Media Platform
-            {
-                title: "Social Media Platform",
-                description: "A modern social networking platform featuring real-time messaging, content sharing, and community building tools. Built for scalability and user engagement.",
-                tech: ["React", "Socket.io", "Node.js", "Redis", "AWS"],
-                features: ["Real-time messaging", "Content sharing", "User profiles", "Community features", "Privacy controls"]
-            },
-
-            // PROJECT 9: Cloud Infrastructure
-            {
-                title: "Cloud Infrastructure",
-                description: "Scalable cloud architecture design and implementation for enterprise-level applications. Focus on security, performance, and cost optimization.",
-                tech: ["AWS", "Docker", "Kubernetes", "Terraform", "CI/CD"],
-                features: ["Auto-scaling infrastructure", "Load balancing", "Continuous deployment", "Security standards", "Cost optimization"]
             }
         ];
 
         // Modal functionality
         if (modal.element) {
 
-            function showProject(project, index) {
-                document.getElementById('modalTitle').textContent = project.title;
+            let carouselKeyHandler = null;
 
-                const modalImageElement = document.getElementById('modalImage');
+            function showProject(project, index) {
+                const titleEl = document.getElementById('modalTitle');
+                if (!titleEl) {
+                    console.error('showProject: modalTitle element not found');
+                    return;
+                }
+                titleEl.textContent = project.title;
+
+                // Prepare slides (use current screenshots when available; placeholders otherwise)
+                const slides = [];
                 if (index === 0) {
-                    modalImageElement.innerHTML = '<img src="photos/websitephoto.webp" alt="Rapidds Rafting homepage screenshot">';
+                    slides.push({ src: 'photos/websitephoto.webp', caption: project.title });
+                    slides.push({ placeholder: true, caption: 'Interior page (placeholder)' });
+                    slides.push({ placeholder: true, caption: 'Mobile view (placeholder)' });
                 } else if (index === 1) {
-                    modalImageElement.innerHTML = '<img src="photos/personalportfolio.webp" alt="Personal Portfolio website screenshot">';
+                    slides.push({ src: 'photos/personalportfolio.webp', caption: project.title });
+                    slides.push({ placeholder: true, caption: 'Shader background (placeholder)' });
+                    slides.push({ placeholder: true, caption: 'Mobile layout (placeholder)' });
+                } else if (index === 2) {
+                    slides.push({ src: 'photos/iamthefool.webp', caption: project.title });
+                    slides.push({ placeholder: true, caption: 'Gameplay mechanics (placeholder)' });
+                    slides.push({ placeholder: true, caption: 'Level editor (placeholder)' });
+                } else if (index === 3) {
+                    slides.push({ src: 'photos/wdd131.webp', caption: project.title });
+                    slides.push({ placeholder: true, caption: 'Plant encyclopedia (placeholder)' });
+                    slides.push({ placeholder: true, caption: 'API integration (placeholder)' });
+                } else if (index === 4) {
+                    slides.push({ src: 'photos/ignis.webp', caption: project.title });
+                    slides.push({ placeholder: true, caption: 'Memory system (placeholder)' });
+                    slides.push({ placeholder: true, caption: 'API endpoints (placeholder)' });
                 } else {
-                    modalImageElement.textContent = `Project ${index + 1}`;
-                    modalImageElement.innerHTML = `Project ${index + 1}`;
+                    slides.push({ placeholder: true, caption: `Project ${index + 1}` });
+                    slides.push({ placeholder: true, caption: `Project ${index + 1} — alt` });
                 }
 
-                document.getElementById('modalDescription').textContent = project.description;
+                const carouselRoot = document.getElementById('modalImage');
+                if (!carouselRoot) {
+                    console.error('showProject: modalImage (carousel root) not found');
+                    return;
+                }
+                const slidesContainer = carouselRoot.querySelector('#carouselSlides');
+                const indicators = carouselRoot.querySelector('#carouselIndicators');
+                let captionEl = carouselRoot.querySelector('#carouselCaption');
+                if (!slidesContainer || !indicators) {
+                    console.error('showProject: carousel containers missing', { slidesContainer, indicators });
+                    return;
+                }
+                if (!captionEl) {
+                    captionEl = document.createElement('div');
+                    captionEl.className = 'carousel-caption';
+                    captionEl.id = 'carouselCaption';
+                    carouselRoot.appendChild(captionEl);
+                }
+
+                slidesContainer.innerHTML = slides.map((s, i) => {
+                    if (s.src) return `<div class="carousel-item${i === 0 ? ' active' : ''}" data-index="${i}"><img src="${s.src}" alt="${s.caption}"></div>`;
+                    return `<div class="carousel-item${i === 0 ? ' active' : ''}" data-index="${i}"><div class="modal-placeholder-image">${s.caption}</div></div>`;
+                }).join('');
+
+                indicators.innerHTML = slides.map((s, i) => `<li data-index="${i}" class="${i === 0 ? 'active' : ''}" aria-label="Go to slide ${i + 1}"></li>`).join('');
+                captionEl.textContent = slides[0].caption || '';
+
+                // wire controls
+                const prevBtn = document.getElementById('carouselPrev');
+                const nextBtn = document.getElementById('carouselNext');
+                const slideNodes = slidesContainer.querySelectorAll('.carousel-item');
+                const indicatorNodes = indicators.querySelectorAll('li');
+
+                let activeIndex = 0;
+
+                function setActive(i) {
+                    const next = (i + slideNodes.length) % slideNodes.length;
+                    slideNodes.forEach(s => s.classList.remove('active'));
+                    indicatorNodes.forEach(ind => ind.classList.remove('active'));
+                    slideNodes[next].classList.add('active');
+                    if (indicatorNodes[next]) indicatorNodes[next].classList.add('active');
+                    captionEl.textContent = slides[next].caption || '';
+                    activeIndex = next;
+                }
+
+                prevBtn.onclick = () => setActive(activeIndex - 1);
+                nextBtn.onclick = () => setActive(activeIndex + 1);
+
+                indicatorNodes.forEach(ind => ind.addEventListener('click', (e) => setActive(Number(ind.dataset.index) || Number(ind.getAttribute('data-index')))));
+
+                // populate textual content
+                document.getElementById('modalDescription').textContent = project.description || '';
+                document.getElementById('modalRole').textContent = project.role;
+
+                // Render normalized tags only inside the Role & Responsibilities area
+                (function () {
+                    const tagsContainer = document.getElementById('modalTags');
+                    if (!tagsContainer) return;
+                    const tags = project.tags || [];
+                    if (!tags.length) {
+                        tagsContainer.innerHTML = '';
+                        return;
+                    }
+                    const pretty = (t) => t.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+                    tagsContainer.innerHTML = tags.map(t => `<span class="tech-tag">${pretty(t)}</span>`).join('');
+                })();
+
+                const techIconMap = {
+                    'html': { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/html5/html5-original.svg', href: 'https://developer.mozilla.org/en-US/docs/Web/HTML' },
+                    'css': { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/css3/css3-original.svg', href: 'https://developer.mozilla.org/en-US/docs/Web/CSS' },
+                    'javascript': { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/javascript/javascript-original.svg', href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
+                    'three': { icon: 'https://threejs.org/favicon.ico', href: 'https://threejs.org/', class: 'icon-white' },
+                    'webgl': { icon: 'https://www.khronos.org/favicon.ico', href: 'https://www.khronos.org/webgl/' },
+                    'typescript': { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/typescript/typescript-original.svg', href: 'https://www.typescriptlang.org/' },
+                    'react': { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/react/react-original.svg', href: 'https://reactjs.org/' },
+                    'node': { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/nodejs/nodejs-original.svg', href: 'https://nodejs.org/' },
+                    'git': { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/git/git-original.svg', href: 'https://git-scm.com/' },
+                    'github': { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/github/github-original.svg', href: 'https://github.com/', class: 'icon-white' },
+                    'aws': { icon: 'https://avatars.githubusercontent.com/u/3310?s=200&v=4', href: 'https://aws.amazon.com/' },
+                    'docker': { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/docker/docker-original.svg', href: 'https://www.docker.com/' },
+                    'json': { icon: 'https://www.vectorlogo.zone/logos/json/json-icon.svg', href: 'https://www.json.org/json-en.html' },
+                    'python': { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/python/python-original.svg', href: 'https://www.python.org/' },
+                    'd3': { icon: 'https://d3js.org/logo.svg', href: 'https://d3js.org/' },
+                    'pygame': { icon: 'https://www.pygame.org/favicon.ico', href: 'https://www.pygame.org/' },
+                    'fastapi': { icon: 'https://github.com/fastapi.png', href: 'https://fastapi.tiangolo.com/' },
+                    'llama': { icon: 'https://pngimg.com/uploads/meta/meta_PNG5.png', href: 'https://www.llama.com/' },
+                    'chromadb': { icon: 'https://github.com/chroma-core.png', href: 'https://www.trychroma.com/' },
+                    'powershell': { icon: 'https://gist.github.com/Xainey/d5bde7d01dcbac51ac951810e94313aa/raw/6c858c46726541b48ddaaebab29c41c07a196394/PowerShell.svg', href: 'https://learn.microsoft.com/powershell/' },
+                    'batch-file': { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/windows8/windows8-original.svg', href: 'https://en.wikipedia.org/wiki/Batch_file' },
+                    'batch': { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/windows8/windows8-original.svg', href: 'https://en.wikipedia.org/wiki/Batch_file' }
+                };
+
+                function findIconForTech(label) {
+                    if (!label) return null;
+                    const key = label.toLowerCase();
+
+                    // Prefer exact matches first
+                    for (const k in techIconMap) if (key === k) return techIconMap[k];
+
+                    // Handle common synonyms explicitly to avoid false positives
+                    if (key.includes('github')) return techIconMap['github'];
+                    if (key.includes('git') && !key.includes('github')) return techIconMap['git'];
+                    if (key.includes('pygame')) return techIconMap['pygame'];
+                    if (key.includes('fastapi')) return techIconMap['fastapi'];
+                    if (key.includes('llama')) return techIconMap['llama'];
+                    if (key.includes('chromadb') || key.includes('chroma')) return techIconMap['chromadb'];
+                    if (key.includes('powershell')) return techIconMap['powershell'];
+                    if (key.includes('batch-file') || key.includes('batch')) return techIconMap['batch-file'];
+                    if (key.includes('html')) return techIconMap['html'];
+                    if (key.includes('css')) return techIconMap['css'];
+
+                    // Fallback to contains checks for other keys
+                    for (const k in techIconMap) if (key.includes(k)) return techIconMap[k];
+                    return null;
+                }
 
                 const techContainer = document.getElementById('modalTechnologies');
-                techContainer.innerHTML = project.tech.map(t => `<span class="tech-tag">${t}</span>`).join('');
+                // Only show known stack icons. Do not render free-form tech tags.
+                // Deduplicate icons (by href) and prefer GitHub when both 'git' and 'github' are present.
+                (function renderTechIcons() {
+                    const seen = new Set();
+                    const items = [];
+                    (project.tech || []).forEach(t => {
+                        const meta = findIconForTech(t);
+                            if (meta && meta.icon) {
+                            const dedupeKey = meta.href || meta.icon;
+                            if (seen.has(dedupeKey)) return;
+                            seen.add(dedupeKey);
+                            const href = meta.href || '#';
+                            const imgClass = meta.class ? ` class="${meta.class}"` : '';
+                            items.push(`<a href="${href}" target="_blank" rel="noopener noreferrer" class="project-tech-item modal-stack-icon" data-tooltip="${t}"><img src="${meta.icon}" alt="${t}"${imgClass}></a>`);
+                        }
+                    });
+                    techContainer.innerHTML = items.join('');
+                })();
 
                 const featureContainer = document.getElementById('modalFeatures');
-                featureContainer.innerHTML = project.features.map(f => `<li>${f}</li>`).join('');
+                featureContainer.innerHTML = (project.features || []).map(f => `<li>${f}</li>`).join('');
 
                 const liveLink = document.getElementById('modalLiveLink');
                 const repoLink = document.getElementById('modalRepoLink');
-
                 if (index === 0) {
                     liveLink.href = 'https://jinzurei.github.io/wdd130/wwr/index.html';
                     liveLink.setAttribute('rel', 'noopener noreferrer');
                     liveLink.setAttribute('target', '_blank');
-                    
                     repoLink.href = 'https://github.com/jinzurei/wdd130';
                     repoLink.setAttribute('target', '_blank');
                     repoLink.setAttribute('rel', 'noopener noreferrer');
@@ -649,43 +931,127 @@
                     liveLink.href = '#home';
                     liveLink.removeAttribute('target');
                     liveLink.removeAttribute('rel');
-                    
                     repoLink.href = '#';
                     repoLink.style.display = 'inline-block';
                     repoLink.textContent = 'GitHub Repo';
                     repoLink.removeAttribute('target');
                     repoLink.removeAttribute('rel');
                 } else if (index === 2) {
-                    liveLink.href = '#';
-                    repoLink.style.display = 'none';
+                    liveLink.href = 'https://github.com/jinzurei/IAmTheFool';
+                    liveLink.setAttribute('rel', 'noopener noreferrer');
+                    liveLink.setAttribute('target', '_blank');
+                    repoLink.href = 'https://github.com/jinzurei/IAmTheFool';
+                    repoLink.setAttribute('target', '_blank');
+                    repoLink.setAttribute('rel', 'noopener noreferrer');
+                    repoLink.style.display = 'inline-block';
+                    repoLink.textContent = 'GitHub Repo';
+                } else if (index === 3) {
+                    liveLink.href = 'https://jinzurei.github.io/wdd131/';
+                    liveLink.setAttribute('rel', 'noopener noreferrer');
+                    liveLink.setAttribute('target', '_blank');
+                    repoLink.href = 'https://github.com/jinzurei/wdd131';
+                    repoLink.setAttribute('target', '_blank');
+                    repoLink.setAttribute('rel', 'noopener noreferrer');
+                    repoLink.style.display = 'inline-block';
+                    repoLink.textContent = 'GitHub Repo';
+                } else if (index === 4) {
+                    liveLink.href = 'https://github.com/jinzurei/Ignis';
+                    liveLink.setAttribute('rel', 'noopener noreferrer');
+                    liveLink.setAttribute('target', '_blank');
+                    repoLink.href = 'https://github.com/jinzurei/Ignis';
+                    repoLink.setAttribute('target', '_blank');
+                    repoLink.setAttribute('rel', 'noopener noreferrer');
+                    repoLink.style.display = 'inline-block';
+                    repoLink.textContent = 'GitHub Repo';
                 } else {
                     liveLink.href = '#';
                     repoLink.style.display = 'none';
                 }
 
-                modal.element.style.display = 'block';
-                document.body.style.overflow = 'hidden';
+                // remember last focused element so we can restore focus on close
+                modalLastFocus = document.activeElement;
 
+                // show modal and animate
+                try {
+                    modal.element.style.display = 'block';
+                    modal.element.setAttribute('aria-hidden', 'false');
+                    modal.element.style.pointerEvents = 'auto';
+                    document.body.style.overflow = 'hidden';
+                } catch (err) {
+                    console.error('Error showing modal:', err);
+                }
                 const modalContent = modal.element.querySelector('.modal-content');
                 modalContent.classList.remove('modal-glitch-in');
                 modalContent.offsetHeight;
+                setTimeout(() => modalContent.classList.add('modal-glitch-in'), 10);
 
-                setTimeout(() => {
-                    modalContent.classList.add('modal-glitch-in');
-                }, 10);
+                // move focus into the dialog (close button) for accessibility
+                try { modal.close?.focus(); } catch (err) { /* ignore */ }
+
+                // keyboard nav
+                if (carouselKeyHandler) document.removeEventListener('keydown', carouselKeyHandler);
+                carouselKeyHandler = (e) => {
+                    if (modal.element.style.display !== 'block') return;
+                    if (e.key === 'ArrowLeft') setActive(activeIndex - 1);
+                    if (e.key === 'ArrowRight') setActive(activeIndex + 1);
+                };
+                document.addEventListener('keydown', carouselKeyHandler);
+
+                // set initial
+                setActive(0);
             }
 
             function hideModal() {
                 const modalContent = modal.element.querySelector('.modal-content');
                 modalContent.classList.remove('modal-glitch-in');
 
-                modal.element.style.display = 'none';
-                document.body.style.overflow = 'auto';
+                // restore focus to the element that opened the modal (if available)
+                try {
+                    if (modalLastFocus && document.body.contains(modalLastFocus)) {
+                        modalLastFocus.focus({ preventScroll: true });
+                    } else {
+                        const firstItem = document.querySelector('.portfolio-item');
+                        if (firstItem) firstItem.focus({ preventScroll: true });
+                        else document.body.focus();
+                    }
+                } catch (err) {
+                    console.warn('hideModal: failed to restore focus', err);
+                }
+
+                try {
+                    modal.element.style.display = 'none';
+                    modal.element.setAttribute('aria-hidden', 'true');
+                    modal.element.style.pointerEvents = 'none';
+                    document.body.style.overflow = 'auto';
+                } catch (err) {
+                    console.error('Error hiding modal:', err);
+                }
+
+                if (carouselKeyHandler) {
+                    document.removeEventListener('keydown', carouselKeyHandler);
+                    carouselKeyHandler = null;
+                }
             }
 
-            document.querySelectorAll('.portfolio-item').forEach((item, i) => {
-                item.addEventListener('click', () => showProject(projectInfo[i], i));
-            });
+            // Use event delegation on the portfolio grid to ensure handlers stay attached
+            const portfolioGridEl = document.querySelector('.portfolio-grid');
+            if (portfolioGridEl) {
+                portfolioGridEl.addEventListener('click', (e) => {
+                    const item = e.target.closest('.portfolio-item');
+                    console.log('portfolio grid click', { target: e.target, item });
+                    if (!item) return;
+                    const items = Array.from(document.querySelectorAll('.portfolio-item'));
+                    const idx = items.indexOf(item);
+                    console.log('portfolio item index', idx);
+                    if (idx >= 0) {
+                        try {
+                            showProject(projectInfo[idx], idx);
+                        } catch (err) {
+                            console.error('showProject failed from delegated handler', err);
+                        }
+                    }
+                });
+            }
 
             modal.close?.addEventListener('click', hideModal);
             modal.element.addEventListener('click', (e) => {

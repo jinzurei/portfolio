@@ -720,6 +720,11 @@ button:focus:not(:focus-visible) {
     filter: invert(1) brightness(1.2) drop-shadow(0 1px 0 rgba(0,0,0,0.35));
 }
 
+/* Global helper: make any icon marked .icon-white invert for visibility on dark glass */
+img.icon-white {
+    filter: invert(1) brightness(1.2) drop-shadow(0 1px 0 rgba(0,0,0,0.35));
+}
+
 .stack-icons-pair {
     display:inline-flex;
     gap:6px;
@@ -793,6 +798,9 @@ button:focus:not(:focus-visible) {
     .stack-grid { grid-template-columns: repeat(4, 1fr); gap:12px; }
     .stack-item { width: 64px; height:64px; }
     .stack-item img { width:30px; height:30px; }
+    /* move project tech icons into the normal flow on small screens */
+    .project-tech { position: relative; left: 0; bottom: 0; margin-top: 10px; }
+    .portfolio-item .portfolio-info { padding-bottom: 1.5rem; }
 }
 
 /* About */
@@ -874,7 +882,7 @@ button:focus:not(:focus-visible) {
 .portfolio-item {
     background: rgba(0, 0, 0, 0.85);
     border-radius: 10px;
-    overflow: hidden;
+    overflow: visible;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
@@ -918,7 +926,6 @@ button:focus:not(:focus-visible) {
 }
 
 .portfolio-item:hover {
-    transform: translateY(-5px);
     box-shadow:
         0 10px 30px rgba(0, 0, 0, 0.4),
         inset 0 0 0 2px #00ff80,
@@ -930,6 +937,27 @@ button:focus:not(:focus-visible) {
         -6px 6px 0 1px #00ff80;
     border: 2px solid #00ff80;
     animation: cardGlitchColors 0.3s ease-in-out infinite;
+}
+
+/* When the icons are hovered/focused, simulate the same hover state on the parent card */
+.portfolio-item.hover-sim {
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.4),
+        inset 0 0 0 2px #00ff80,
+        inset 2px 2px 0 2px #ff0040,
+        inset -2px -2px 0 2px #0080ff,
+        4px 4px 0 1px #00ff80,
+        -4px -4px 0 1px #ff0040,
+        6px -6px 0 1px #0080ff,
+        -6px 6px 0 1px #00ff80;
+    border: 2px solid #00ff80;
+    animation: cardGlitchColors 0.3s ease-in-out infinite;
+}
+
+.project-tech img:hover,
+.project-tech img:focus {
+    transform: translateY(-3px);
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.55));
 }
 
 .portfolio-item.glitch-in {
@@ -1073,6 +1101,104 @@ button:focus:not(:focus-visible) {
     line-height: 1.6;
 }
 
+/* Project card tech icons row */
+.project-tech {
+    /* anchor tech icons to the bottom-left corner of the card */
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    max-width: calc(100% - 24px); /* Prevent overflow, leave 12px margin on right */
+    z-index: 6;
+    pointer-events: auto;
+}
+.project-tech a,
+.project-tech .tech-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.project-tech img {
+    width: 28px;
+    height: 28px;
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+    display: inline-block;
+}
+.project-tech .tech-tag {
+    background: rgba(255,255,255,0.03);
+    color: #dfeefe;
+    padding: 6px 10px;
+    border-radius: 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Keep icon-white images white even when parent states or filters change */
+.project-tech img.icon-white {
+    filter: invert(1) brightness(1.6) saturate(1.2) drop-shadow(0 1px 0 rgba(0,0,0,0.35)) !important;
+}
+
+/* Tooltip for project tech icons (behaves like .stack-item tooltips) */
+.project-tech a {
+    position: relative;
+    display: inline-flex;
+}
+.project-tech a::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 8px);
+    transform: translateX(-50%) translateY(4px);
+    white-space: nowrap;
+    background: rgba(20,20,20,0.95);
+    color: #e6eef8;
+    padding: 8px 10px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 140ms ease, transform 140ms ease;
+    z-index: 10000; /* render above other page elements */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+.project-tech a::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid rgba(20,20,20,0.95);
+    opacity: 0;
+    transition: opacity 140ms ease, transform 140ms ease;
+    z-index: 9999;
+    bottom: calc(100% + 2px);
+}
+.project-tech a:hover::after,
+.project-tech a:focus::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0px);
+}
+.project-tech a:hover::before,
+.project-tech a:focus::before {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0px);
+}
+
+/* leave room at bottom of the card for anchored icons (supports 2 rows of wrapped icons) */
+.portfolio-item .portfolio-info {
+    padding-bottom: 4.5rem;
+}
+
 /* Modal */
 .modal {
     display: none;
@@ -1082,27 +1208,31 @@ button:focus:not(:focus-visible) {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(5px);
-    animation: fadeIn 0.3s ease;
+    /* translucent overlay to let backdrop-filter work on the page behind */
+    background-color: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(10px) saturate(120%);
+    -webkit-backdrop-filter: blur(10px) saturate(120%);
+    animation: fadeIn 0.28s ease;
 }
 
 .modal-content {
     position: relative;
-    background-color: rgba(0, 0, 0, 0.9);
+    /* true black glass panel: subtle gradient + heavy blur on backdrop */
+    background: linear-gradient(180deg, rgba(12,12,12,0.42), rgba(6,6,6,0.30));
+    -webkit-backdrop-filter: blur(14px) saturate(120%);
+    backdrop-filter: blur(14px) saturate(120%);
     margin: 5% auto;
     padding: 0;
-    border-radius: 15px;
+    border-radius: 14px;
     width: 90%;
-    max-width: 800px;
-    max-height: 85vh;
+    max-width: 880px;
+    max-height: 86vh;
     overflow-y: auto;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.66), inset 0 4px 12px rgba(255,255,255,0.02);
     opacity: 0;
-    transform: scale(0.9);
-    transition: none;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    transform: scale(0.96);
+    transition: transform 220ms cubic-bezier(.2,.9,.2,1), opacity 200ms ease;
+    border: 1px solid rgba(255,255,255,0.04);
 }
 
 .modal-content.modal-glitch-in {
@@ -1111,33 +1241,44 @@ button:focus:not(:focus-visible) {
 
 .modal-close {
     position: absolute;
-    top: 15px;
-    right: 20px;
-    color: #b0b0b0;
-    font-size: 2rem;
-    font-weight: bold;
+    top: 14px;
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    display: inline-grid;
+    place-items: center;
+    background: rgba(255,255,255,0.06);
+    border-radius: 6px;
+    color: #d0d0d0;
+    font-size: 1.1rem;
+    line-height: 1;
+    border: 1px solid rgba(255,255,255,0.06);
     cursor: pointer;
     z-index: 2001;
-    transition: color 0.3s ease;
+    transition: background 160ms ease, color 160ms ease, transform 160ms ease;
 }
 
 .modal-close:hover {
-    color: #e0e0e0;
+    background: rgba(255,255,255,0.1);
+    color: #ffffff;
+    transform: translateY(-1px);
 }
 
 .modal-header {
-    padding: 30px 30px 20px;
-    border-bottom: 1px solid #555;
+    padding: 22px 26px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
 .modal-header h2 {
-    color: #e0e0e0;
-    font-size: 2rem;
+    color: #f5f5f5;
+    font-size: 1.8rem;
     margin: 0;
+    font-weight: 700;
+    letter-spacing: 0.2px;
 }
 
 .modal-body {
-    padding: 30px;
+    padding: 22px 26px 28px;
 }
 
 .modal-image {
@@ -1148,13 +1289,26 @@ button:focus:not(:focus-visible) {
     overflow: hidden;
 }
 
+.modal-image {
+    width: 100%;
+    height: 220px;
+    margin-bottom: 18px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative; /* ensure controls sit over the image */
+    background: linear-gradient(135deg, rgba(0,123,255,0.12), rgba(108,117,125,0.06));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+}
 .modal-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 8px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.6);
 }
-
 .modal-placeholder-image {
     width: 100%;
     height: 100%;
@@ -1163,16 +1317,28 @@ button:focus:not(:focus-visible) {
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.4rem;
+    font-weight: 700;
+    border-radius: 8px;
 }
 
-.modal-info h3 {
-    color: #e0e0e0;
-    font-size: 1.3rem;
-    margin-bottom: 15px;
-    margin-top: 25px;
-}
+/* Scoped carousel styling for modal (fade, indicators, glass arrows) */
+.modal-carousel { width:100%; height:100%; position:relative; }
+.carousel-inner { position:relative; width:100%; height:100%; }
+.carousel-item { position:absolute; inset:0; opacity:0; transition: opacity 420ms ease; display:flex; align-items:center; justify-content:center; }
+.carousel-item.active { opacity:1; }
+.carousel-item img { width:100%; height:100%; object-fit:cover; display:block; }
+.carousel-caption { position:absolute; left:16px; bottom:12px; background: rgba(0,0,0,0.45); color:#e6eef8; padding:6px 10px; border-radius:8px; font-weight:600; backdrop-filter: blur(6px); }
+.carousel-indicators { position:absolute; right:12px; bottom:12px; display:flex; gap:8px; list-style:none; padding:0; margin:0; }
+.carousel-indicators li { width:10px; height:10px; border-radius:50%; background: rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.04); cursor:pointer; }
+.carousel-indicators li.active { background: rgba(255,255,255,0.95); border-color: rgba(0,0,0,0.3); }
+.carousel-control { position:absolute; top:50%; transform:translateY(-50%); width:40px; height:40px; border-radius:8px; background: rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); cursor:pointer; display:inline-grid; place-items:center; z-index:40; }
+.carousel-control-prev { left:12px; }
+.carousel-control-next { right:12px; }
+.carousel-control::after { content: ''; display:inline-block; border: solid #fff; border-width: 0 3px 3px 0; padding:6px; transform: rotate(-45deg); }
+.carousel-control-prev::after { transform: rotate(135deg); }
+.carousel-control-next::after { transform: rotate(-45deg); }
+.carousel-control:hover { background: rgba(255,255,255,0.06); transform: translateY(-50%) translateY(-2px); }
 
 .modal-info h3:first-child {
     margin-top: 0;
@@ -1189,15 +1355,46 @@ button:focus:not(:focus-visible) {
     flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 20px;
+    align-items: center;
 }
 
 .tech-tag {
-    background: #007bff;
-    color: white;
-    padding: 5px 12px;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    background: rgba(255,255,255,0.04);
+    color: #dfeefe;
+    padding: 6px 12px;
     border-radius: 20px;
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: 600;
+}
+.tech-tag img {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Modal: stack icons should match main stack size */
+.modal-info .project-tech-item.modal-stack-icon img {
+    width: 36px;
+    height: 36px;
+    display: block;
+    filter: drop-shadow(0 1px 0 rgba(0,0,0,0.5));
+}
+.modal-info .project-tech-item.modal-stack-icon { margin-right: 8px; display: inline-block; }
+
+/* Ensure icon-white stays white inside the modal (override modal image filter) */
+.modal-info .project-tech-item.modal-stack-icon img.icon-white {
+    filter: invert(1) brightness(1.6) saturate(1.2) drop-shadow(0 1px 0 rgba(0,0,0,0.35)) !important;
+}
+
+.feature-list {
+    color: #b0b0b0;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    padding-left: 20px;
 }
 
 .feature-list {
